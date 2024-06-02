@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+@using ServiceAPI;
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Controllers;
+@using LuckyWheelWebCore.Extensions;
+@using System.Globalization;
+@using Newtonsoft.Json;
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="ROBOTS" content="index,follow,noodp" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="BingBOT" content="index,follow" />
+    <meta name="yahooBOT" content="index,follow" />
+    <meta name="slurp" content="index,follow" />
+    <meta name="msnbot" content="index,follow" />
+
+    @*og:url, og:type, og:image, fb:app_id*@
+    <link rel="shortcut icon" href="/favicon.ico?v=1.1" type="image/x-icon" />
+
+    <title>Unitel - iLucky</title>
+    <meta name="description" content="Unitel iLucky - Lucky Wheel" />
+    <meta name="keywords" content="Unitel, iLucky, Wheel" />
+    <meta property="og:locale" content="la_LA" />
+    <meta property="og:site_name" content="Unitel - iLucky" />
+    <meta property="og:title" content="Unitel iLucky - Lucky Wheel" />
+    <meta property="og:description" content="Unitel iLucky - Lucky Wheel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@BaseController.RootHref" />
+    <meta property="og:image" content="@(BaseController.RootHref + "/wheel/prize/10.png")" />
+    <meta property="fb:app_id" content="@BaseController.FacebookAppId" />
+
+    <link href="/" title="Unitel - iLucky - Lucky Wheel" rel="canonical" />
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/draw.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/scrollbar.css" rel="stylesheet" />
+    <link href="~/js/bootstrap-toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/myluck/css/style.min.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/spin.css" />
+    <script src="~/js/spin.js"></script>
+    <script type="text/javascript" src="~/js/multiLanguajeDemo.js"></script>
+</head>
+
+<body style="scroll-x:none;" class="">
+
+    @Html.AntiForgeryToken()
+    <div id="game-container2" class="">
+
+
+        @*<img src="~/myluck/images/natcom.png" class="top middle top-logo" />*@
+        @*<h1 class="middle page_content" style="top: 140px;" id="lblWelcome">LUCKY WHEEL</h1>*@
+
+        <div id="game-container" class="">
+
+            @RenderBody()
+
+        </div>
+
+
+
+        <div id="footer">
+        </div>
+
+        <div class="overlay"></div>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async=async src="https://www.googletagmanager.com/gtag/js?id=G-SDG88LSY4P"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-SDG88LSY4P');
+        </script>
+
+        <img style="width:1px;height:1px;position:absolute;left:-100px;" src="~/myluck/images/loading-card.gif" />
+        <img style="width:1px;height:1px;position:absolute;left:-100px;" src="~/myluck/images/game/btn1.png" />
+        <img style="width:1px;height:1px;position:absolute;left:-100px;" src="~/myluck/images/game/btn2.png" />
+        <div id="scrollButton"></div>
+        <div id="fb-root"></div>
+
+
+
+
+        @*<audio id="sound-bg" class="myluck-sound" autoplay=autoplay loop=loop><source src="~/myluck/sounds/christmas-night.mp3" type="audio/mpeg" /></audio>*@
+        <audio id="sound-confirm" class="myluck-sound"><source src="~/myluck/sounds/confirm.mp3" type="audio/mpeg" /></audio>
+        <audio id="sound-loading" class="myluck-sound" loop=loop><source src="~/myluck/sounds/loading.mp3" type="audio/mpeg" /></audio>
+        <audio id="sound-display-prize" class="myluck-sound"><source src="~/myluck/sounds/display-prize.mp3" type="audio/mpeg" /></audio>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="modalPrize" class="modal fade" role="dialog" data-backdrop="static" style="font-size:1.1rem">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content ">
+
+                <img class="logo-modal" src="~/wheel/dia_alert.png" style="border-radius: 10px 10px 0 0" />
+                <img class="close close-modal" data-dismiss="modal" src="~/wheel/close_modal.png" />
+
+                <div class="modal-body">
+                    <p class="p-header" id="p-header-prize"></p>
+                    <p class="p-content" id="p-content-prize"></p>
+
+                    @*<input type="hidden" id="prizeId" value="" />*@
+                    <button class="btn btn-share-facebook btn-grid" data-bind="" value="">@Lang.ShareFacebook</button>
+                </div>
+
+
+                @*<button onclick='FB.AppEvents.logEvent("buttonClicked")'>
+                        Click me
+                    </button>*@
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div id="modalInvite" class="modal fade" role="dialog" data-backdrop="static" style="font-size:1.1rem">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content ">
+
+                @*<img class="logo-modal" src="~/wheel/mocha.png" style="border-radius: 10px 10px 0 0" />*@
+                <img class="close close-modal" data-dismiss="modal" src="~/wheel/close_modal.png" />
+
+                <div class="modal-body">
+                    <p class="p-header">@Lang.InviteFriend</p>
+                    <p class="p-content">@Lang.InviteFriendDetail</p>
+
+                    <div style="display: flex; justify-content: center" class="invite-content" id="invite-content">
+
+
+                        @*<div class="btn-invite btn-share-facebook btn-mission" data-bind="0" data-action="INVITE">
+                                <img src="~/wheel/fbmessenger.png" />
+                            </div>*@
+                        @*<div class="btn-invite" data-bind="mocha" data-action="INVITE">
+                                <img src="~/wheel/mocha.png" />
+                            </div>*@
+                        @*<div class="btn-invite" data-bind="sms" data-action="INVITE">
+                                <img src="~/wheel/messenger.png" />
+                            </div>*@
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="modalMission" class="modal fade" role="dialog" data-backdrop="static" style="font-size:1.1rem">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content ">
+
+                @*<img class="logo-modal" src="~/wheel/link.png" style="border-radius: 10px 10px 0 0" />*@
+                <img class="close close-modal" data-dismiss="modal" src="~/wheel/close_modal.png" />
+
+                <div class="modal-body">
+                    <p class="p-header">@Lang.Mission</p>
+                    <p class="p-content">@Lang.MissionDetail</p>
+
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center" class="invite-content" id="mission-content">
+
+                        @*@foreach (missionObj mission in listMission)
+                            {
+                                <div class="btn-invite" data-action="MISSION" data-bind="@mission.url">
+                                    <img src="@mission.image" class="mission" />
+                                </div>
+                            }*@
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="modalBuyTurn" class="modal fade" role="dialog" data-backdrop="static" style="font-size:1.1rem">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content ">
+
+                <img class="logo-modal" src="~/wheel/dia_alert.png" style="border-radius: 10px 10px 0 0" />
+                <img class="close close-modal" data-dismiss="modal" src="~/wheel/close_modal.png" />
+
+                <div class="modal-body modal-body-buy">
+                    <p class="p-header">@Lang.OutOfTurn</p>
+                    <p class="p-content">@Lang.OutOfTurnDetail</p>
+                    <p class="p-content-error"></p>
+                    <button type="button" class="btn btn-orange btn-small" data-dismiss="modal">@Lang.Close</button>
+                    @*<button type="button" class="btn btn-orange btn-small btn-buy-otp">@Lang.BuyTurn</button>*@
+                </div>
+
+                <div class="modal-body modal-body-otp" style="display:none">
+                    <p class="p-content" id="p-content-otp">
+                        @Lang.EnterOtp
+                    </p>
+
+                    <p class="p-content-error"></p>
+
+                    <div class="p-otp">
+                        <input class="input-otp" id="otp1" type="text" maxlength="1" />
+                        <input class="input-otp" id="otp2" type="text" maxlength="1" />
+                        <input class="input-otp" id="otp3" type="text" maxlength="1" />
+                        <input class="input-otp" id="otp4" type="text" maxlength="1" />
+                    </div>
+                    <p style="padding: 20px 0px; display: flex; justify-content: center;">
+                        <span class="text-grey" style="padding-right: 10px">@Lang.OtpProblem</span>
+                        <span class="text-orange btn-buy-otp">@Lang.OtpAgain</span>
+                    </p>
+
+                    <button type="button" class="btn btn-orange btn-small btn-buy-confirm">@Lang.Confirm</button>
+                </div>
+
+                <div class="modal-body modal-body-result">
+                    <p class="p-content-result" style="padding-bottom: 20px"></p>
+
+                    <button type="button" class="btn btn-orange btn-small" data-dismiss="modal">@Lang.Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/bootstrap-toastr/toastr.min.js"></script>
+    <script src="~/myluck/js/main.js?v=1.61233"></script>
+    <script src="~/myluck/js/game.js?v=1.11112"></script>
+    <script>
+
+        var flag = false;
+
+        $('.game-pack').on('click swipe', function () {
+            $('#confirm-text').html($(this).attr('confirm-text'));
+            $('#pack-cmd').val($(this).attr('pack-cmd'));
+            $('#play-again-btn').attr('target-btn', $(this).attr('id'));
+
+            $('.clicked img').addClass('mbounce');
+            $('.game-pack').removeClass('clicked');
+
+            $(this).addClass('clicked');
+            $('img', $(this)).removeClass('mbounce');
+        });
+        $('#close-result-modal').click(function () {
+            $('#result-modal').hide();
+        });
+        $('#play-again-btn').click(function () {
+            $('#result-modal').hide();
+            $('#' + $(this).attr('target-btn')).click();
+        });
+        $(function () {
+            toastr.options.positionClass = 'toast-top-right';
+            toastr.options.showEasing = 'swing';
+            toastr.options.hideEasing = 'linear';
+            toastr.options.showMethod = 'fadeIn';
+            toastr.options.hideMethod = 'fadeOut';
+            toastr.options.showDuration = 5000;
+            toastr.options.hideDuration = 1000;
+            toastr.options.timeOut = 5000;
+            toastr.options.extendedTimeOut = 1000;
+            toastr.options.closeButton = 1;
+        });
+
+        function hideElement(modalName) {
+            $("#" + modalName).hide();
+        }
+        function showElement(modalName) {
+            $("#" + modalName).show();
+        }
+
+        function hideModal(modalName) {
+            $("#" + modalName).modal('hide');
+        }
+        function showModal(modalName) {
+            $("#" + modalName).modal('show');
+        }
+
+        var opts = {
+            lines: 8, // The number of lines to draw
+            length: 5, // The length of each line
+            width: 3, // The line thickness
+            radius: 5, // The radius of the inner circle
+            scale: 1, // Scales overall size of the spinner
+            corners: 1, // Corner roundness (0..1)
+            color: '#ffffff', // CSS color or array of colors
+            fadeColor: 'transparent', // CSS color or array of colors
+            speed: 1, // Rounds per second
+            rotate: 0, // The rotation offset
+            animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            zIndex: 2e9, // The z-index (defaults to 2000000000)
+            className: 'spinner', // The CSS class to assign to the spinner
+            //top: '50%', // Top position relative to parent
+            //left: '50%', // Left position relative to parent
+            shadow: '0 0 1px transparent', // Box-shadow for the lines
+            //position: 'absolute' // Element positioning
+        };
+
+        var spinner = new Spinner(opts);
+
+        function startSpinner(obj) {
+            var target = document.getElementById(obj);
+            $("#" + obj).prop("disabled", true);
+            spinner.spin(target);
+        }
+
+
+        function stopSpinner(obj) {
+            $("#" + obj).prop("disabled", false);
+            if (spinner != undefined) {
+                spinner.stop();
+            }
+        }
+
+        var lang;
+        $(document).ready(function () {
+            lang = WebPortal.Cookies.getCookie("Language");
+
+            $(".setLang").on("click", function (event) {
+                var lang = $(this).attr("data-lang");
+                var language = $(this).attr("lang");
+                document.cookie = "Language" + "=" + lang + ";"
+                console.log(lang);
+
+                $.ajax({
+                    url: "/Language/ChangeLanguage",
+                    data: {
+                        __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                        LanguageAbbrevation: lang
+                    },
+                    type: "POST",
+                    success: function (data) {
+                        location.reload(true);
+                    },
+                    error: function (req, st, error) {
+                        console.log("Error : " + error);
+                    }
+                });
+            });
+
+            if (lang == null || lang == undefined) {
+                lang = "fr-FR";
+                //document.cookie = "Language" + "=" + lang + ";"
+                $(".setLang[lang='" + lang + "']").click();
+            }
+            console.log($(".setLang[lang='" + lang + "']").html());
+            $(".current-lang").html($(".setLang[lang='" + lang + "']").html());
+
+            // change
+
+        });
+
+
+
+    </script>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '@BaseController.FacebookAppId',
+                //cookie: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <script>
+        function share_facebook(prizeId, playId, reload) {
+            //var prizeId = $(this).attr("data-bind");
+            @*FB.ui({
+                display: 'popup',
+                method: 'share_open_graph',
+                hashtag: '#ໂຊກດີຄັ້ງຕໍ່ໄປ!',
+                quote: 'I got a big prize',
+                action_type: 'og.shares',
+                action_properties: JSON.stringify({
+                    object: {
+                        'og:url': '@BaseController.RootHref' + '/Home/PrizeInfo?prizeId=' + prizeId,
+                        'og:title': 'Unitel iLucky',
+                        'og:description': 'I got big prize',
+                        'og:image': '@BaseController.RootHref' + '/wheel/prize/' + prizeId + '.png',
+                        'og:image:width': '1200',
+                        'og:image:height': '630'
+                    },
+                })
+            }, function (response) {
+                flag = true;
+                console.log("FB response: " + response + ", flag: " + flag);
+            });*@
+
+            //var playId = $(".btn-share-facebook").val();
+            if (playId != null && playId > 0) {
+                // post receive prize
+                $.ajax({
+                    url: "/Home/ConfirmPrize",
+                    data: {
+                        __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                        playId: playId
+                    },
+                    type: "POST",
+                    success: function (data) {
+                        console.log(data);
+                        if (data.error == "0") {
+                            //hideModal("modalPrize");
+                            setTimeout(function () {
+                                $("#modalPrize .close-modal").show();
+                                if (reload) {
+                                    location.reload();
+                                }
+                            }, 2000);
+
+                        } else {
+                            alert(data.content);
+                        }
+                    },
+                    error: function (req, st, error) {
+                        alert(error);
+                    }
+                });
+            }
+
+            var link = encodeURIComponent('@BaseController.RootHref' + '/Home/PrizeInfo?prizeId=' + prizeId);
+            var fullLink = encodeURIComponent("https://www.facebook.com/sharer/sharer.php?u=" + link);
+            location.href = "mocha://fb?ref=" + link;
+        }
+
+        function checkFlag(playId) {
+            console.log("Check flag " + flag + " - " + playId);
+            if (flag === false) {
+                window.setTimeout(checkFlag, 500, playId); /* this checks the flag every 100 milliseconds*/
+            } else {
+                flag = false;
+                //var playId = $(".btn-share-facebook").val();
+                if (playId != null && playId > 0) {
+                    // post receive prize
+                    $.ajax({
+                        url: "/Home/ConfirmPrize",
+                        data: {
+                            __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                            playId: playId
+                        },
+                        type: "POST",
+                        success: function (data) {
+                            console.log(data);
+                            if (data.error == "0") {
+                                hideModal("modalPrize");
+                                //location.reload();
+                                //window.history.back();
+                            } else {
+                                //alert(data.content);
+                                //window.history.back();
+                            }
+                        },
+                        error: function (req, st, error) {
+                            //alert(error);
+                            //window.history.back();
+                        }
+                    });
+                }
+            }
+        }
+    </script>
+
+    <script>
+        $(".btn-share-facebook").click(function () {
+            var prizeId = $(this).attr("data-bind");
+            var playId = $(this).val();
+            var reload = $(this).attr("data-content");
+
+            //location.href = "/Home/PrizeConfirm?prizeId=" + prizeId + "&playId=" + playId;
+
+            share_facebook(prizeId, playId, reload);
+
+            //checkFlag(playId);
+
+        });
+
+
+
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

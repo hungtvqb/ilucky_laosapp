@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BuyTurn" xml:space="preserve">
+    <value>ຊື້ຮອບໝູນ</value>
+  </data>
+  <data name="BuyTurnSuccess" xml:space="preserve">
+    <value>ການຊື້ຮອບໝູນສຳເລັດ, ສືບຕໍ່ການໝຸນໄດ້ເລີຍ!</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ປິດ</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>ຢືນຢັນ</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>ຢືນຢັນສຳເລັດ </value>
+  </data>
+  <data name="Congratulation" xml:space="preserve">
+    <value>ຂໍສະເເດງຄວາມຍິນດີ</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>ສືບຕໍ່</value>
+  </data>
+  <data name="Correct" xml:space="preserve">
+    <value>ຖືກຕ້ອງ</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>ກີບ</value>
+  </data>
+  <data name="EnterOtp" xml:space="preserve">
+    <value>ກະລຸນາປ້ອນລະຫັດ OTP ທີ່ທ່ານໄດ້ຮັບໃນຂໍ້ຄວາມເພື່ອສືບຕໍ່</value>
+  </data>
+  <data name="FillForm" xml:space="preserve">
+    <value>ກະລຸນາຕື່ມຂໍ້ມູນໃສ່ໃນຟອມນີ້</value>
+  </data>
+  <data name="Fullname" xml:space="preserve">
+    <value>ຊື່ເຕັມ</value>
+  </data>
+  <data name="Goodbye" xml:space="preserve">
+    <value>ລາກ່ອນ</value>
+  </data>
+  <data name="GoodLuck" xml:space="preserve">
+    <value>ໂຊກດີຄັ້ງຕໍ່ໄປ!</value>
+  </data>
+  <data name="Guide" xml:space="preserve">
+    <value>ກົດລະບຽບຂອງເກມ</value>
+  </data>
+  <data name="GuideDetail" xml:space="preserve">
+    <value>&lt;p&gt;ລະບຽບຂອງເກມ I-lucky ຢູ່ເທິງ LaoApp&lt;br /&gt;ຮ່ວມຫຼິ້ນເກມnໝູນວົງລໍ້ I-luckyທີ່ LaoApp, ລຸ້ນຮັບເງິນໂປໂມຊັ່ນ, ດາຕ້າອິນເຕີເນັດຟຣີ ແລະ ບັນດາຂອງລາງວັນອື່ນໆຢ່າງຫຼວງຫຼາຍ.&lt;br /&gt;ເວລາໃນການເປີດໃຊ້ງານ:&lt;br /&gt;- ສາມາດຫຼິ້ນໄດ້ທຸກມື້ ເເລະ ທຸກເວລາ&lt;br /&gt;ກຸ່ມເປົ້າໝາຍເຂົ້າຮ່ວມ:&lt;br /&gt;- ລູກຄ້າທັງໝົດທີ່ໄດ້ຕິດຕັ້ງ ແລະ ນຳໃຊ້ LaoApp ຢູ່ໃນລາວ.&lt;br /&gt;ເນື້ອໃນຂອງລາຍການ:&lt;br /&gt;- ກົດເຂົ້າໄປທີ່ LaoApp, ເມື່ອເຂົ້າໄປທີ່ໜ້າຫຼັກ ເເລະ ກົດເຂົ້າໄປທີ່ Icon ຂອງເກມໝຸນວົງລໍ້ I-Lucky ກໍສາມາດໝູນວົງລໍ້ເພື່ອລຸ້ນຂອງລາງວັນໄດ້ທັນທີ.&lt;br /&gt;- ຖ້າວົງລໍ້ຢຸດຢູ່ທີ່ຊ່ອງຂອງລາງວັນໃດ, LaoApp ຈະມອບຂອງລາງວັນມູນຄ່າໂທ ຫຼື ດາຕ້າອິນເຕີເນັດ... ແຕ່ຖ້າວົງລໍ້ຢຸດຢູ່ທີ່ຊ່ອງ ພາລະກິດໃດ, ຜູ້ຫຼິ້ນຈະຕ້ອງເຮັດພາລະກິດນັ້ນເຖິງຈະມີສິດຫຼິ້ນຕໍ່ໄດ້.&lt;br /&gt;- ເພື່ອໃຫ້ເພີ່ມຮອບການໝຸນວົງລໍ້, ຜູ້ຫຼິ້ນສາມາດສົ່ງຄຳຂໍຄວາມຊ່ວຍເຫຼືອໄປຫາໝູ່ເພື່ອນ ຫຼື ເຊີນຊວນເພື່ອນຂອງ ທ່ານຕິດຕັ້ງ LaoApp ທ່ານຈະໄດ້ເພີ່ມ 1 ຮອບການໝຸນວົງລໍ້. ສ່ວນຄຳຂໍ ເຊີນຊວນເພື່ອນຂອງທ່ານຕິດຕັ້ງ LaoApp ສຳເລັດ, ທ່ານຈະໄດ້ຮັບເພີ່ມ 5 ຮອບໄປເລີຍ. ຂອງລາງວັນຢ່າງຫຼວງຫຼາຍກຳລັງລໍຖ້າທ່ານຢູ່, ເຂົ້າຮ່ວມຫຼິ້ນເກມກັບພວກເຮົາໄດ້ທັນທີ!&lt;br /&gt;ຂໍ້ຄວນເອົາໃຈໃສ່:&lt;br /&gt;- ເກມນີ້ໄດ້ສ້າງຂຶ້ນໂດຍ LaoApp, ເຊິ່ງ Apple ແລະ google ບໍ່ແມ່ນຜູ້ສະໜັບສະໜູນ ແລະ ບໍ່ມີສ່ວນກ່ຽວຂ້ອງໃນເກມນີ້ (This contest runs by LaoApp. Apple and Google are not the sponsors and are not involved in any way of this contest).&lt;br /&gt;- ການຕັດສິນຂອງຄະນະການຈັດຕັ້ງ (LaoApp) ແມ່ນການຕັດສິນໃຈຂັ້ນສຸດທ້າຍ.&lt;br /&gt;ທ່ານສາມາດສອບ ຖາມຂໍ້ມູນເພີ່ມຕື່ມໄດ້ທີ່: ໂທ 109 (ຟຣີ).&lt;/p&gt;</value>
+  </data>
+  <data name="Invite" xml:space="preserve">
+    <value>ເຊີນຊວນ</value>
+  </data>
+  <data name="InviteContent" xml:space="preserve">
+    <value>ຕິດຕັ້ງ LaoApp ເພື່ອຮັບດາຕ້າ 500 MB ແລະ 25 ນາທີໂທພາຍໃນເຄືອຂ່າຍ ຫຼື ເບິ່ງວິດິໂອແບບບໍ່ຈຳກັດຟຣີ 30ມື້ໃນ Uclip ຕິດຕັ້ງໄດ້ທີ່ https://bit.ly/301Fo3k ເພື່ອສົ່ງຂໍ້ຄວາມຟຣີ, ໂທວິດິໂອແບບບໍ່ອັ້ນ, ຟັງເພງຟຣີແບບບໍ່ເສຍດາຕ້າ… ແລະ ຍັງມີເກມເພື່ອໃຫ້ທ່ານໄດ້ຫລິ້ນລຸ້ນຮັບຂອງລາງວັນມູນຄ່າ 1.000.000 ກີບໃນທຸກໆມື້ ແລະ 10.000.000 ກີບໃນທ້າຍອາທິດ. LaoApp ຊຸບເປີແອັບທີ່ກຳລັງເປັນທີ່ຍອດນິຍົມທີ່ສຸດໃນລາວກັບຍອດຜູ້ຕິດຕັ້ງນຳໃຊ້ຫຼາຍກວ່າ 1,5 ລ້ານຄົນ.</value>
+  </data>
+  <data name="InviteFriend" xml:space="preserve">
+    <value>ເຊີນໝູ່ຕິດຕັ້ງ LaoApp</value>
+  </data>
+  <data name="InviteFriendDetail" xml:space="preserve">
+    <value>ເຊີນຊວນໝູ່ຂອງທ່ານຕິດຕັ້ງ LaoApp ເພື່ອສືບຕໍ່</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ເຂົ້າສູ່ລະບົບ</value>
+  </data>
+  <data name="LoginFirst" xml:space="preserve">
+    <value>ກະລຸນາເຂົ້າສູ່ລະບົບກ່ອນ</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>ເປີດລິ້ງ</value>
+  </data>
+  <data name="MissionDetail" xml:space="preserve">
+    <value>ໄປທີ່ລິ້ງເພື່ອສືບຕໍ່ໝຸນ</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>ຕໍ່ໄປ</value>
+  </data>
+  <data name="NoMorePrize" xml:space="preserve">
+    <value>ບໍ່ມີລາງວັນເເລ້ວ</value>
+  </data>
+  <data name="NotSupport" xml:space="preserve">
+    <value>ໂອອອອ!</value>
+  </data>
+  <data name="NotSupportDetail" xml:space="preserve">
+    <value>ທ່ານບໍ່ໄດ້ນຳໃຊ້ເຄືອຂ່າຍຂອງ Unitel. ທ່ານສາມາດກັບຄືນໄປທີ່ Mocha ເພື່ອນຳໃຊ້ບໍລິການອື່ນ. ຂໍຂອບໃຈ</value>
+  </data>
+  <data name="OtpAgain" xml:space="preserve">
+    <value>ຮັບ OTP ອີກຄັ້ງໜຶ່ງ</value>
+  </data>
+  <data name="OtpProblem" xml:space="preserve">
+    <value>ລະຫັດ OTP ມີບັນຫາຫຼືບໍ່?</value>
+  </data>
+  <data name="OutOfTurn" xml:space="preserve">
+    <value>ອອກຈາກການໝຸນ</value>
+  </data>
+  <data name="OutOfTurnDetail" xml:space="preserve">
+    <value>ຮອບໜຸນຂອງທ່ານໝົດເເລ້ວ, ຊື້ເພື່ອໝຸນຕໍ່. 200ກີບ/ຮອບໝຸນ</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>ລະຫັດຜ່ານ</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>ເບີໂທລະສັບ</value>
+  </data>
+  <data name="PrizeName" xml:space="preserve">
+    <value>ລາງວັນ</value>
+  </data>
+  <data name="PrizeTime" xml:space="preserve">
+    <value>ເວລາ</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>ຄຳຖາມ</value>
+  </data>
+  <data name="RemainSpin" xml:space="preserve">
+    <value>ຮອບໝຸນ</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>ເເບ່ງປັນ</value>
+  </data>
+  <data name="ShareFacebook" xml:space="preserve">
+    <value>ແບ່ງປັນ</value>
+  </data>
+  <data name="Showroom" xml:space="preserve">
+    <value>ຫ້ອງລໍຖ້າ</value>
+  </data>
+  <data name="Spin" xml:space="preserve">
+    <value>ໝຸນ</value>
+  </data>
+  <data name="SpinSlogan" xml:space="preserve">
+    <value>ໝຸນເພື່ອຮັບລາງວັນໃຫຍ່</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>ເວລາໝົດ</value>
+  </data>
+  <data name="ViewAds" xml:space="preserve">
+    <value>See Ads</value>
+  </data>
+  <data name="VisitLink" xml:space="preserve">
+    <value>ສືບຕໍ່</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>ລໍຖ້າ</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>ຍິນດີຕ້ອນຮັບ</value>
+  </data>
+  <data name="Wrong" xml:space="preserve">
+    <value>ຜິດ</value>
+  </data>
+  <data name="YourPrize" xml:space="preserve">
+    <value>ລາງວັນຂອງທ່ານ</value>
+  </data>
+</root>

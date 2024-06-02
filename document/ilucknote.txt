@@ -1,0 +1,12 @@
+https://docs.google.com/spreadsheets/d/1DpilLbtBcVsUC218U8vICO0xw94ef7wcferkWOvGbG4/edit#gid=0
+
+uuid lấy từ LaoApp nhé
+
+Tỉ lệ trúng giải cấu hình thẳng trong DB
+
+[9:24 AM, 4/4/2022] +84 169 300 4441: có mấy bảng: list_prize, group_prize
+[9:24 AM, 4/4/2022] +84 169 300 4441: thằng số 5 đang ko  chạy
+[9:24 AM, 4/4/2022] +84 169 300 4441: số 4 để cộng thưởng
+[9:24 AM, 4/4/2022] +84 169 300 4441: số 6 để LB các node
+
+

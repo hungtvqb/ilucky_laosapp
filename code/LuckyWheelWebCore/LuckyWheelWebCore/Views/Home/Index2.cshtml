@@ -1,0 +1,766 @@
+﻿
+@{
+    ViewBag.Title = "LuckyDraw";
+}
+@using ServiceAPI;
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Controllers;
+@using LuckyWheelWebCore.Extensions;
+@using System.Globalization;
+@using Newtonsoft.Json;
+@using Microsoft.AspNetCore.Http
+
+@inject IJsonHelper Json;
+
+@{
+    UserInfo userInfo = Context.Session.GetComplexData<UserInfo>("userInfo");
+    string listPrize = JsonConvert.SerializeObject(BaseController.ListPrize());
+    var listMission = BaseController.ListMission();
+    List<LuckyQuestionUtils.segment> segments = BaseController.ListSegments();
+
+    String uuid = Context.Session.GetString("uuid");
+}
+
+<style>
+    .prize-background {
+        background: url('../../myluck/images/prizebackground.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        min-height: 700px;
+    }
+
+    .modal {
+        text-align: center;
+    }
+</style>
+
+
+<div style="height: 770px;" id="drawwheel">
+    @*<label class="top left page_content" id="lblTotalPoint">Total point</label>*@
+    <input type="hidden" id="lastAction" value="@userInfo.spinTotal.lastAction" />
+    <div class="top-head">
+        <a class="top-head-img" href="mocha://back">
+            <img src="~/wheel/close.png" />
+        </a>
+        <div class="top-head-text">
+            @Lang.RemainSpin: <span id="lblRemain">@userInfo.total_spin</span>
+        </div>
+        <a href="/Home/UserPrize" class="head-text-right">
+            @userInfo.msisdn.Substring(BaseController.CountryCode.Length)
+        </a>
+    </div>
+    <div class="top-money">
+        <div class="top-money-img">
+            <img src="~/wheel/hu.png" />
+        </div>
+        <div class="top-money-text">
+            <span id="totalCoin">@LuckyQuestionUtils.totalCoin</span> @Lang.Currency
+        </div>
+        <div class="top-money-btn" onclick="RefreshHu();">
+            <img src="~/wheel/refresh.png" />
+        </div>
+    </div>
+    <div style="display:flex; padding-top: 10px">
+        <label class="lbl-top" id="lblSlogan">@Lang.SpinSlogan</label>
+    </div>
+
+    <!-- CANVAS TO DRAW -->
+    <div style="display:flex; padding-top: 20px; position:relative">
+        <canvas id="canvas" width="400" height="400" style="align-self: center;   margin-left: auto; margin-right: auto ">
+        </canvas>
+        <img src="~/myluck/images/pointer.png" class="pointer" id="pointer" />
+    </div>
+    @*<div style="display:flex; padding-top: 10px">
+            <label class=" ">@Lang.RemainSpin <span id="lblRemain">@userInfo.remain_spin</span></label>
+        </div>*@
+    <div style="display:flex; padding-top: 20px; position:relative">
+        <button type="button" class="btn-orange" id="spin_button">
+            @Lang.Spin
+        </button>
+    </div>
+
+    <div style="display:flex; padding-top: 10px">
+        <a href="/Home/Guide" class="guide-link">@Lang.Guide</a>
+    </div>
+
+    @*<img id="spin_button" src="~/myluck/images/spin_on.png" alt="Spin" class="spin_button" />*@
+
+    @*@if (userInfo != null && userInfo.regInfo != null)
+        {
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalUnRegister" id="btnUnregDialog"
+                    style="position: absolute; top: 480px; right: 5px; transform: translate(-0%, -50%); z-index: 2;">
+                Unsubscribe
+            </button>
+        }
+
+        <a class="btn btn-danger" id="btnLogout" style="position: absolute; top: 480px; right: 5px; transform: translate(-0%, -50%); z-index: 2;" href="/Home/Logout">
+            Logout
+        </a>*@
+</div>
+
+<img id="wheelImage" />
+
+<!--<div class="modal fade" role="dialog" data-backdrop="static" style="font-size:1.1rem" id="modalUnRegister">
+    <div class="modal-dialog">-->
+<!-- Modal content-->
+<!--<div class="modal-content" style="background-color: white">
+            <div class="modal-header ">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div style="text-align:center; margin: 20px">
+                <p>
+                    Are you sure want to cancel service?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnConfirmCancel" runat="server">
+                    Confirm
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/Winwheel.js"></script>
+    @*<script type="text/javascript" src="~/js/TweenMax.min.js"></script>*@
+    <script type="text/javascript" src="https://unpkg.com/gsap@2.1.2/./umd/TweenMax.js"></script>
+
+    <script>
+        var listPrize = JSON.parse('@Html.Raw(listPrize)');
+        var listMission = JSON.parse('@Html.Raw(JsonConvert.SerializeObject(listMission))');
+        var angle = 360 / listPrize.length;
+        //console.log(angle);
+
+        var canvas = $("#canvas"),
+            ctx = canvas[0].getContext('2d');
+
+        // Create new wheel object specifying the parameters at creation time.
+        var theWheel = new Winwheel({
+            'numSegments': @segments.Count,         // Specify number of segments.
+            //'outerRadius': 150,       // Set outer radius so wheel fits inside the background.
+            'innerRadius': 35,       // Set outer radius so wheel fits inside the background.
+            'drawMode': 'image',   // drawMode must be set to image.
+            'drawText': true,      // Need to set this true if want code-drawn text on image wheels.
+            'textFontSize': 15,        // Set text options as desired.
+            'textFontWeight': 300,
+            //'responsive': true,
+            //'wheelImage': $("#wheelImage"),
+            //'textOrientation'   : 'curved',
+            'textDirection'     : 'reversed',
+            'textAlignment'     : 'center',
+            'textMargin'        : 5,
+            'textFontFamily': 'Phetsarath_regular',
+            //'textStrokeStyle'   : 'black',
+            //'textLineWidth'     : 2,
+            //'textFillStyle': 'black',
+            'segments': JSON.parse('@Html.Raw(JsonConvert.SerializeObject(segments))'),
+            'animation':                   // Specify the animation to use.
+            {
+                'type': 'spinToStop',
+                'duration': 5,     // Duration in seconds.
+                'spins': 6,     // Number of complete spins.
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound,
+                'soundTrigger': 'pin'
+            },
+            'pins':
+            {
+                //'responsive' : true,
+                'number': 15,   // Number of pins. They space evenly around the wheel.
+                'visible': false
+            }
+        });
+
+        // Vars used by the code in this page to do power controls.
+        var wheelPower = 3;
+        var wheelSpinning = false;
+
+
+        var audio = new Audio('../../medias/tick.mp3');
+        var audio_win1 = new Audio('../../medias/win1.mp3');
+        var audio_win2 = new Audio('../../medias/win2.mp3');
+        var audio_win3 = new Audio('../../medias/win3.mp3');
+        var audio_win4 = new Audio('../../medias/win4.mp3');
+        var audio_win5 = new Audio('../../medias/win5.mp3');
+        var audio_win6 = new Audio('../../medias/win6.mp3');
+        //var audio_lose = new Audio('Content/lose.mp3');
+        var canvasHeight = 400;
+
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
+
+        function playSoundResult(sound) {
+            // Stop and rewind the sound if it already happens to be playing.
+            sound.pause();
+            sound.currentTime = 0;
+
+            // Play the sound.
+            sound.play();
+        }
+
+        function showModalBuyOtp() {
+            $(".modal-body-buy").hide();
+            $(".modal-body-otp").show();
+            $(".modal-body-result").hide();
+
+            $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_otp.png");
+        }
+
+        function showModalBuyTurn() {
+            $("#modalBuyTurn").modal("show");
+            $(".modal-body-buy").show();
+            $(".modal-body-otp").hide();
+            $(".modal-body-result").hide();
+
+            $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_delete.png");
+            $("#modalBuyTurn .p-content-error").html("");
+        }
+
+        function showModalResult(isSuccess) {
+            $(".modal-body-buy").hide();
+            $(".modal-body-otp").hide();
+            $(".modal-body-result").show();
+            if (isSuccess) {
+                $(".p-content-result").html('@Lang.BuyTurnSuccess');
+                $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_success.png");
+            } else {
+                $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_close.png");
+            }
+        }
+
+        function resize() {
+
+            // canvasHeight = $(window).height() - $("#canvas").offset().top - Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight());
+            //canvasHeight = $(window).height() * 45 / 100;
+            //if (canvasHeight < 320) {
+            //    canvasHeight = 320;
+            //}
+            canvasHeight = $(window).width()  ;
+            if (canvasHeight < 320) {
+                canvasHeight = 320;
+            }
+            if (canvasHeight > 500) {
+                canvasHeight = 500;
+            }
+
+            console.log("height: " + canvasHeight);
+
+
+            //canvas.css({ top: 'calc(50%)' });
+
+            ctx.canvas.height = canvasHeight;
+            ctx.canvas.width = canvasHeight;
+
+            // Create new image object in memory.
+            var loadedImg = new Image();//$("#wheelImage");// new Image();
+
+
+            // Create callback to execute once the image has finished loading.
+            loadedImg.onload = function () {
+                theWheel.wheelImage = loadedImg;    // Make wheelImage equal the loaded image object.
+                theWheel.resize();
+                theWheel.draw();                    // Also call draw function to render the wheel.
+            }
+
+            //loadedImg.height = canvasHeight;
+            //loadedImg.width = canvasHeight;
+            loadedImg.src = "../myluck/images/planes.png";
+
+            // Set the image source, once complete this will trigger the onLoad callback (above)
+
+            //var canvasTop = $("#canvas").offset().top;
+            //if ($(window).height() < 585) {
+            //    //$("#canvas").offset().top = 75;
+            //    canvasTop = 265;
+            //    $("#canvas").css({ top: canvasTop, height: canvasHeight, width: canvasHeight });
+            //    var pointerTop = canvasTop;// - canvasHeight / 2 + canvasHeight / 26;
+            //    $("#pointer").css({ top: pointerTop, width: canvasHeight / 7 });
+            //    //$("#canvas").css({ height: canvasHeight, width: canvasHeight });
+            //    //$("#pointer").css({ top: pointerTop, width: canvasHeight / 13 });
+            //} else {
+            //canvasTop = $(window).height() * 45 / 100;
+
+
+
+            //var pointerTop = canvasTop;// - canvasHeight / 2 + canvasHeight / 26;
+            //$("#pointer").css({ top: 'calc(50%)', width: canvasHeight / 4 });
+            $("#pointer").css({ width: canvasHeight / 4 });
+            var lblBottomPos = canvas.offset().top + canvasHeight + 35;
+            var lblTopPos = canvas.offset().top - 35;
+            var lblWelcomePos = lblTopPos - 30;
+            var logoTopPos = lblWelcomePos - 45;
+            var spinBtnPos = lblBottomPos + 50;
+            //$("#spin_button").css({ top: spinBtnPos });
+            $(".lbl-bottom").css({ top: lblBottomPos });
+            //$(".lbl-top").css({ top: lblTopPos });
+            $("#lblWelcome").css({ top: lblWelcomePos });
+            $(".top-logo").css({ top: logoTopPos });
+            $("#btnUnregDialog").css({ top: lblBottomPos });
+            $("#btnLogout").css({ top: spinBtnPos });
+
+            //console.log(canvasTop);
+            //}
+            //var topButton = canvasTop + canvasHeight / 2 + 35;
+            ////$("#lblRemain").css({ top: topButton - 30 });
+            //$("#btnRegDialog").css({ top: topButton + 15 });
+            //$("#btnUnregDialog").css({ top: topButton + 15 });
+            //$("#lblTotalPoint").css({ top: topButton - 60 });
+            //$("#btnBuyDialog").css({ top: topButton - 20 });
+            //$("#btnBuyDialogMany").css({ top: topButton + 15 });
+            //$("#lblWelcome").css({ top: topButton - 60 });
+
+
+            //$("#canvas").outerHeight(canvasHeight);
+            //$("#canvas").width = $("#canvas").height;
+
+            //$("#pointer").outerHeight($("#canvas").width / 13);
+
+
+            //$("#pointer").top = 100;// $(window).height() / 2 - $("#canvas").height / 2;
+            //console.log($("#pointer").top);
+            //console.log(pointerTop);
+        }
+
+        $("#spin_button").click(function () {
+            console.log("Click");
+            if (!validateSpin()) {
+                return;
+            }
+
+            startSpin();
+        });
+
+        $(".btn-buy-otp").click(function () {
+            // send post
+            $.ajax({
+                url: "/Home/BuyTurnOtp",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        // show otp input
+                        showModalBuyOtp();
+
+                        $("#otp1").val("");
+                        $("#otp2").val("");
+                        $("#otp3").val("");
+                        $("#otp4").val("");
+                        $("#otp1").focus();
+                    } else {
+                        $(".p-content-error").html(data.content);
+                    }
+                },
+                error: function (req, st, error) {
+                    $(".p-content-otp").html("Error:  " + error);
+                }
+            });
+        });
+
+        $(".btn-buy-confirm").click(function () {
+            var otp = $("#otp1").val() + $("#otp2").val() + $("#otp3").val() + $("#otp4").val();
+            // send post
+            $.ajax({
+                url: "/Home/BuyTurnConfirm",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                    otp: otp
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+
+                        showModalResult(true);
+
+                    } else {
+                        if (data.error == "1500") {
+                            // not enough money
+                            $(".p-content-result").html(data.content);
+                            showModalResult(false);
+                        } else {
+                            $(".p-content-error").html(data.content);
+                        }
+                    }
+                },
+                error: function (req, st, error) {
+                    $(".p-content-otp").html("Error:  " + error);
+                }
+            });
+        });
+
+        $(".input-otp").on('keydown', function (e) {
+            if (e.which >= 48 && e.which <= 57) {
+                var num = String.fromCharCode();
+                $(this).val(num);
+            }
+        });
+
+        $(".input-otp").on('keyup', function (e) {
+            if (e.which >= 48 && e.which <= 57) {
+                $(this).next(".input-otp").focus();
+            }
+        });
+
+        // -------------------------------------------------------
+        // Click handler for spin button.
+        // -------------------------------------------------------
+        function validateSpin() {
+            var remainSpin = parseInt($("#lblRemain").html());
+            console.log(remainSpin);
+            var lastAction = $("#lastAction").val();
+            if (lastAction != null  ) {
+                // do mission first
+                if (lastAction.startsWith("INVITE")) {
+                    randomInvite();
+                    $("#modalInvite .close-modal").hide();
+                    $("#modalInvite").modal("show");
+                    return false;
+                } else if (lastAction.startsWith("MISSION")) {
+                    // random mission
+                    var mission = randomMission(listMission);
+
+                    $("#modalMission .close-modal").hide();
+                    //
+                    $("#modalMission").modal("show");
+                    return false;
+                }
+            }
+            if (remainSpin <= 0) {
+                console.log("return");
+                // alert buy spin
+                showModalBuyTurn();
+                return false;
+            }
+            return true;
+        }
+
+        function startSpin() {
+
+            // Ensure that spinning can't be clicked again while already running.
+            if (wheelSpinning == false ) {
+                resetWheel();
+
+                wheelSpinning = true;
+
+                wheelPower = 4;
+                // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+                // to rotate with the duration of the animation the quicker the wheel spins.
+                theWheel.animation.spins = 10;
+                theWheel.animation.easing = 'Linear.easeNone';
+                theWheel.animation.repeat = -1;
+                theWheel.animation.type = 'spinOngoing';
+                theWheel.animation.duration = 7; // The speed is controlled by this, less is faster.
+
+                // Disable the spin button so can't click again while wheel is spinning.
+                //$("#spin_button").attr("scr", "../../myluck/images/spin_off.png");
+                $("#spin_button").prop('disabled', true);
+
+                theWheel.startAnimation();
+                UseCallback();
+            }
+        }
+
+
+        function UseCallback(arg, context) {
+            console.log("call back");
+            $.ajax({
+                url: "/Home/SpinAction",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        //$("#prizeId").val(data.prize.id);
+                        $(".btn-share-facebook").attr("data-bind", data.prize.id);
+                        $(".btn-share-facebook").val(data.playId);
+                        //$(".btn-share-facebook").attr("href", "/Home/PrizeConfirm?prizeId=" + data.prize.id + "&playId=" + data.playId);
+
+                        HandleEvent(data.prize);
+
+                        // change remain
+                        $("#lastAction").val(data.lastAction);
+                        $("#lblRemain").html(data.remainSpin);
+                        $("#totalCoin").html(data.totalCoin);
+                    } else {
+                        HandleError(data.content);
+                        if (data.href != null && data.href != "") {
+                            location.href = data.href;
+                        }
+                    }
+                },
+                error: function (req, st, error) {
+                    HandleError(error);
+                }
+            });
+
+            //HandleEvent(arg, context);
+        }
+
+        var handled = false;
+        function HandleEvent(input) {
+            //console.log("Start handle");
+            setTimeout(function () {
+                //do what you need here
+                HandleEvent1(input);
+            }, 5000);
+        }
+        function HandleEvent1(prize) {
+
+            console.log("Prize");
+            console.log(prize);
+
+            wheelPower = 3;
+            theWheel.animation.type = 'spinToStop';
+            theWheel.animation.repeat = 0;
+            theWheel.animation.easing = 'Power2.easeOut';
+            theWheel.animation.spins = 10;
+            theWheel.animation.duration = 7;
+            theWheel.setStopAngle(-angle/2 + angle * prize.id);
+
+            theWheel.stopAnimation(false);
+            theWheel.startAnimation(2);
+            handled = true;
+        }
+
+        function HandleError(input) {
+            handled = true;
+            resetWheel();
+            console.log("Error " + input);
+        }
+
+
+        // -------------------------------------------------------
+        // Function for reset button.
+        // -------------------------------------------------------
+        function resetWheel() {
+            theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+            theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+            theWheel.draw();                // Call draw to render changes to the wheel.
+            wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+            //$("#spin_button").attr("scr", "../../myluck/images/spin_on.png");
+            $("#spin_button").prop('disabled', false);
+        }
+
+        // -------------------------------------------------------
+        // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+        // note the indicated segment is passed in as a parmeter as 99% of the time you will want to know this to inform the user of their prize.
+        // -------------------------------------------------------
+        function alertPrize(indicatedSegment) {
+            console.log(indicatedSegment);
+            if (handled == false) {
+                return;
+            }
+            handled = false;
+            wheelSpinning = false;
+
+            // get prize
+            var prize = listPrize[indicatedSegment.startAngle / angle];
+            console.log(prize);
+
+            // show prize
+            if (prize.actionCode.startsWith("INVITE")) {
+                randomInvite();
+                $("#modalInvite .close-modal").hide();
+                $("#modalInvite .logo-modal").attr("src", prize.image);
+                $("#modalInvite").modal("show");
+            } else if (prize.actionCode.startsWith("MISSION")) {
+                // random mission
+                var mission = randomMission(listMission);
+                $("#modalMission .close-modal").hide();
+                $("#modalMission .logo-modal").attr("src", prize.image);
+                $("#modalMission").modal("show");
+            } else {
+                $("#modalPrize .logo-modal").attr("src", prize.image);
+                $("#modalPrize .p-header").html(prize.prizeName);
+                $("#modalPrize .p-content").html(prize.description);
+                $("#modalPrize .close-modal").hide();
+                $("#modalPrize").modal("show");
+            }
+
+            $("#spin_button").prop('disabled', false);
+        }
+
+        function randomMission(listMission) {
+            var min = 1;
+            var max = listMission.length;
+            var idx = Math.floor(Math.random() * (max - min + 1) + min);
+
+            var mission = listMission[idx - 1];
+            var url = mission.url.replace("#uuid#", "@uuid");
+            var fullContent = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite"'
+                    + ' data-bind="' + url + '"'
+                    + ' data-action="MISSION"'
+                    + ' onclick="invite_action(&quot;MISSION&quot;,&quot;' + url + '&quot;)"'
+                    + '>@Lang.VisitLink'
+                    + '</button>';
+
+            @*
+            var fullContent = "";
+            for (var i = 0; i < max; i++) {
+                var mission = listMission[i];
+                var url = mission.url.replace("#uuid#", "@uuid");
+                var content = '<button type="button" class="btn btn-invite btn-orange btn-small" '
+                    + ' data-bind="' + url + '"'
+                    + ' data-action="MISSION"'
+                    + ' onclick="invite_action(&quot;MISSION&quot;,&quot;' + url + '&quot;)"'
+                    + '>@Lang.VisitLink ' + i
+                    + '</button>';
+                fullContent = fullContent + content;
+            }*@
+
+            $("#mission-content").html(fullContent);
+        }
+
+        function randomInvite() {
+            var min = 1;
+            var max = 3;
+            var idx = Math.floor(Math.random() * (max - min + 1) + min);
+
+            var content;
+            if (idx == 1) {
+                content = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite" data-bind="whatsapp" data-action="INVITE" onclick="invite_action(&quot;INVITE&quot;,&quot;whatsapp&quot;)">@Lang.Invite</button>';
+            } else if (idx == 2) {
+                content = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite" data-bind="mocha" data-action="INVITE" onclick="invite_action(&quot;INVITE&quot;,&quot;mocha&quot;)">@Lang.Invite</button>';
+            } else if (idx == 3) {
+                content = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite" data-bind="sms" data-action="INVITE"  onclick="invite_action(&quot;INVITE&quot;,&quot;sms&quot;)">@Lang.Invite</button>';
+            }
+
+
+            $("#invite-content").html(content);
+        }
+
+        $(".btn-confirm").click(function () {
+
+            $("#modalPrize .close-modal").show();
+            $("#modalPrize").modal("hide");
+
+            var remainSpin = parseInt($("#lblRemain").html());
+
+            if (remainSpin <= 0) {
+                // show modal buy turn
+                showModalBuyTurn();
+            }
+
+            //if (remainSpin <= 0) {
+            //    location.href = "/Home/Prize";
+            //} else {
+            //    $("#modalPrize").modal("hide");
+            //}
+        });
+
+        $(document).ready(function () {
+            resize();
+            //$(window).on("resize", function () {
+            //    resize();
+            //});
+        });
+
+
+        //var windowReference = window.open();
+
+        //$(".invite-content").on("click", ".btn-invite", function () {
+        //    var action = $(this).data("action");
+        //    var url = $(this).data("bind");
+        //    invite_action(action, url);
+        //});
+
+        function invite_action(action, url) {
+            startSpinner("btn-invite");
+            var content = encodeURIComponent('@Html.Raw(Lang.InviteContent)');
+            console.log(content);
+            if (action == "INVITE") {
+                switch (url) {
+                    case "mocha":
+                        //url = "mocha://share?ref=" + content;
+                        url = "mocha://invite";
+                        break;
+                    case "whatsapp":
+                        url = "mocha://browser?ref=" + encodeURIComponent("https://api.whatsapp.com/send?text=" + content);
+                        break;
+                    default:
+                        url = "sms:?body=" + content;
+                        break;
+                }
+                
+                // show close button
+                $("#modalInvite .close-modal").show();
+            } else {
+                // show close button
+                $("#modalMission .close-modal").show();
+            }
+
+
+            $.ajax({
+                url: "/Home/DoMission",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                    actionCode: action,
+                    url: url
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        $("#lastAction").val("");
+
+                        console.log(data.href);
+                        if (data.href != null) {
+
+                        }
+                    } else {
+                        alert(data.content);
+                    }
+                },
+                error: function (req, st, error) {
+                    alert(error);
+                }
+            });
+            window.open(url, "_parent"); // -> not working on ios
+            //console.log(windowReference);
+            //windowReference.location = url;
+
+            stopSpinner("btn-invite");
+        }
+
+    </script>
+
+    <script>
+        function RefreshHu() {
+            $.ajax({
+                url: "/Home/RefreshHu",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        $("#totalCoin").html(data.totalCoin);
+                    } else {
+
+                    }
+                },
+                error: function (req, st, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+
+}

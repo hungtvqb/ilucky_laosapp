@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPrize.cshtml";
+
+}
+
+@using LuckyWheelWebCore.Controllers;
+@using LuckyWheelWebCore.Extensions;
+@using System.Globalization;
+@model PrizeObj
+
+
+<div class="div-prize">
+    <a href="@BaseController.FacebookShareHref">
+        @if (Model == null)
+        {
+            <img src="@("/wheel/prize/10.png")" />
+        }
+        else
+        {
+            <img src="@("/wheel/prize/" + Model.prizeId + ".png")" />
+        }
+    </a>
+</div>

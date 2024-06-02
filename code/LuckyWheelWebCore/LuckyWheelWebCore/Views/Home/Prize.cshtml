@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Prize";
+}
+
+@using LuckyWheelWeb.ServiceAPI;
+@using LuckyWheelWeb.Source;
+@using LuckyWheelWeb.Content.Texts;
+
+@{
+    UserInfo userInfo = Session["userInfo"] as UserInfo;
+}
+
+<style>
+    .board .content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: pink;
+    }
+
+    .board {
+        width: 80%;
+        height: 400px;
+        box-sizing: border-box;
+        padding: 15px;
+        position: absolute;
+        overflow: hidden;
+        top: calc(50% - 400px);
+        left: calc(-30%);
+        transform: translate(50%, 50%);
+    }
+
+        .board::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: repeating-linear-gradient( white 0%, white 7.5px, #EA4630 7.5px, #EA4630 15px, white 15px, white 22.5px, #EA4630 22.5px, #EA4630 30px);
+            transform: translateX(-20%) translateY(-20%) rotate(-45deg);
+            animation: animate 20s linear infinite;
+        }
+
+        .board .content {
+            position: relative;
+            background-color: white;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 30px;
+            text-align: center;
+            font-family: sans-serif;
+            z-index: 2;
+        }
+
+        .board,
+        .board .content {
+            box-shadow: 0 0 2px deeppink, 0 0 5px rgba(0, 0, 0, 1), inset 0 0 5px rgba(0, 0, 0, 1);
+            border-radius: 10px;
+        }
+
+            .board .content h2 {
+                color: deeppink;
+            }
+
+            .board .content p {
+                color: dimgray;
+                font-size: 1.2rem;
+                padding-top: 5px;
+            }
+
+    @@keyframes animate {
+        from {
+            background-position: 0;
+        }
+
+        to {
+            background-position: 0 450px;
+        }
+    }
+</style>
+
+<div class="board">
+    @if (userInfo.list_prize.Count > 0)
+    {
+        <div class="content">
+            <h2>@Lang.Congratulation @userInfo.username</h2>
+            <h4>@Lang.YourPrize:</h4>
+            <br />
+            @for (int i = 0; i < userInfo.list_prize.Count; i++)
+            {
+                <p>@userInfo.list_prize[i].prizeName</p>
+            }
+            <br />
+            <a id="btn-confirm" class="btn btn-success btn-md" href="/Home/Logout">
+                @Lang.Confirm
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="content">
+            <h2>@Lang.Goodbye @userInfo.username</h2>
+            <h4>@Lang.GoodLuck</h4>
+            <a id="btn-confirm" class="btn btn-success btn-md" href="/Home/Logout">
+                @Lang.Confirm
+            </a>
+        </div>
+    }
+</div>

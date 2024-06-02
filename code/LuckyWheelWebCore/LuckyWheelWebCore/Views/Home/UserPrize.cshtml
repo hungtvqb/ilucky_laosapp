@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "LuckyDraw";
+}
+@using ServiceAPI;
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Controllers;
+@using LuckyWheelWebCore.Extensions;
+@using System.Globalization;
+@using Newtonsoft.Json;
+
+@model LuckyWheelModel
+
+@{
+    var mapPrize = JsonConvert.SerializeObject(BaseController.MapPrize());
+    var listMission = BaseController.ListMission();
+    List<LuckyQuestionUtils.segment> segments = BaseController.ListSegments();
+
+    var totalPage = Model.totalPage;
+    var currentPage = Model.page ?? "1";
+    var confirmed = Model.confirmed;
+}
+
+
+<div class="top-head" style="text-align: center; justify-content: center; ">
+    <a style="color: #fff; font-size: 14px; font-weight: bold; padding-top: 10px" href="/Home">
+        <img src="~/wheel/home.png" style="height: 35px; width: auto" /> Home
+    </a>
+</div>
+
+<input id="param-confirmed" type="hidden" value="@confirmed" />
+<input id="param-page" type="hidden" value="@currentPage" />
+<input id="param-totalpage" type="hidden" value="@totalPage" />
+
+<div class="box-title box-title2 text-center">
+    <a confirmed="0" class="btn btn-period" href="/Home/UserPrize?confirmed=0">@Lang.Waiting</a>
+    <a confirmed="1" class="btn btn-period" href="/Home/UserPrize?confirmed=1">@Lang.Confirmed</a>
+</div>
+
+<div class="tab-content-container">
+    <br />
+    <table class="table table-hover table-bordered myluck-table">
+        <thead>
+            <tr>
+                <th>@Lang.PrizeTime</th>
+                <th>@Lang.PrizeName</th>
+                <th>@Lang.Share</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.listPrize != null)
+            {
+                for (int i = 0; i < Model.listPrize.Length; i++)
+                {
+                    userPlayObj userPlay = Model.listPrize[i];
+                    <tr id="@("row" + userPlay.id)">
+                        <td>
+                            @userPlay.createdDate
+                        </td>
+                        <td>
+                            @userPlay.prizeName
+                        </td>
+                        <td>
+                            @if (userPlay.confirmed && userPlay.confirmDate != null)
+                            {
+                                @userPlay.confirmDate
+                            }
+                            else
+                            {
+                                <button class="btn  btn-share-facebook btn-grid" data-bind="@userPlay.prizeId" value="@userPlay.id" data-content="reload"
+                                        id="@("btn-confirm-" + userPlay.id)" 
+                                   @*href="@("/Home/PrizeConfirm?prizeId=" + userPlay.prizeId + "&playId=" + userPlay.id)"*@
+                                        >@Lang.Share</button>
+                            }
+
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">
+                        @Lang.NoMorePrize
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <ul class="pagination">
+            <li class="page-item prev">
+                <a class="page-link">&laquo;</a>
+            </li>
+            <li class="page-item next">
+                <a class="page-link">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+
+    <br />
+    <br />
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            var page = parseInt($("#param-page").val());
+            var totalpage = parseInt($("#param-totalpage").val());
+            var confirmed = $("#param-confirmed").val();
+
+            $(".btn-period").removeClass("myluck-btn");
+            $(".btn-period").removeClass("myluck-btn2");
+            $(".btn-period:not([confirmed='" + confirmed + "'])").addClass("myluck-btn2");
+            $(".btn-period[confirmed='" + confirmed + "']").addClass("myluck-btn");
+
+            if (page == 1) {
+                $(".prev a").addClass("disabled");
+            }
+            if (page >= totalpage) {
+                $(".next a").addClass("disabled");
+            }
+
+            $(".prev a").attr("href", "/Home/UserPrize?page=" + (page - 1) + "&confirmed=" + confirmed);
+            $(".next a").attr("href", "/Home/UserPrize?page=" + (page + 1) + "&confirmed=" + confirmed);
+
+        });
+    </script>
+
+    <script>
+
+    </script>
+}
+

@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Questions";
+}
+
+
+@using LuckyWheelWeb.ServiceAPI;
+@using LuckyWheelWeb.Source;
+@using LuckyWheelWeb.Content.Texts;
+@model questions
+
+@{
+    UserInfo userInfo = Session["userInfo"] as UserInfo;
+}
+
+<link rel="stylesheet" href="~/Content/css/questions.css" type="text/css" />
+
+<style>
+    
+</style>
+
+<div class="container sky">
+    <center>
+        @*<img src="~/Content/myluck/images/prizes-bottom.png" style="width: 100%; position:absolute; bottom: 57px; left:0; z-index: 0" />*@
+        @*<img src="~/Content/myluck/images/prizes.png" style="width: 100%;" />*@
+        @*<img src="~/Content/myluck/images/background.png" style="width: 100%;" />*@
+        <p id="demo"></p>
+    </center>
+    <div class="demotext">
+        <div style="padding:10px 5px 10px 5px">
+            <p>@(Lang.Question + (userInfo.current_question + 1) + "/" + userInfo.list_question.Length):</p>
+            <p>@Model.questionContent</p>
+        </div>
+
+        <div class="answer-div" data="1">
+            @Model.answer1
+        </div>
+        <div class="answer-div" data="2">
+            @Model.answer2
+        </div>
+        @if (Model.answer3 != null)
+        {
+            <div class="answer-div" data="3">
+                @Model.answer3
+            </div>
+        }
+        @if (Model.answer4 != null)
+        {
+            <div class="answer-div" data="4">
+                @Model.answer4
+            </div>
+        }
+    </div>
+
+    <div>
+        <div class="answer-correct text-center text-answer" style="display: none">
+            @Lang.Correct
+        </div>
+        <div class="answer-wrong text-center text-answer" style="display: none">
+            @Lang.Wrong
+        </div>
+
+
+        <div class="text-center result-div" style="display: none">
+            <button class="btn btn-success btn-lg" onclick="next_question()">@Lang.Next</button>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date().getTime() + @(Model.timeout * 1000);
+        $("#demo").html(@(Model.timeout) + "s");
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+
+            var seconds = Math.ceil((distance / (1000)));
+            //console.log(seconds);
+
+            // Display the result in the element with id="demo"
+            $("#demo").html(seconds + "s");
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                // next question
+                $("#demo").html("@Lang.Timeout");
+
+                $.ajax({
+                    url: "/Question/CheckAnswer",
+                    data: {
+                        __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                        answer: "0"
+                    },
+                    type: "POST",
+                    success: function (data) {
+                        $(".answer-correct").hide();
+                        $(".answer-wrong").hide();
+                    },
+                    error: function (req, st, error) {
+                        $(".answer-correct").hide();
+                        $(".answer-wrong").hide();
+                    }
+                });
+
+                $(".result-div").show();
+                $(".answer-div").off('click');
+            }
+        }, 1000);
+
+        $(".answer-div").click(function () {
+            var btnId = $(this).id;
+            $(this).toggleClass("answer-div-selected");
+            clearInterval(x);
+            var answer = $(this).attr("data");
+            $.ajax({
+                url: "/Question/CheckAnswer",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                    answer: answer
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        $(".answer-correct").show();
+                        $(".answer-wrong").hide();
+                    } else {
+                        $(".answer-correct").hide();
+                        $(".answer-wrong").show();
+                        if (data.href != null && data.href != "") {
+                            location.href = data.href;
+                        }
+                    }
+                    stopSpinner(btnId);
+                    //grecaptcha.reset(widgetRedeem);
+                },
+                error: function (req, st, error) {
+                    //grecaptcha.reset(widgetRedeem);
+                    stopSpinner(btnId);
+                }
+            });
+
+            $(".result-div").show();
+            $(".answer-div").off('click');
+        });
+
+        function next_question() {
+            location.reload();
+        }
+    </script>
+}

@@ -1,0 +1,35 @@
+--- LUCKY WHEEL --
+10.120.52.77	 					stl_lucky / StlUcK#2@21
+10.120.52.78						stl_lucky / StlUcK#2@21
+10.120.52.79						stl_lucky / StlUcK#2@21
+
+IP:
+public: 183.182.100.198
+LB: 10.120.52.121:8080
+
+http://ilucky.la:8080/Home/NotSupport
+http://183.182.100.198:8080/Home/NotSupport
+
+http://ilucky.la:8080/?uuid=e83e4432ff617c7c8aa43634cae6fe86
+
+DB: IP 10.78.3.95/96:stl_vasext 	STL_LUCKY / StlUcK#2@21
+
+VPN:
+msuite.unitel.com.la
+stl_mocom2@msuite.unitel.com.la	/	135246aA@
+
+#VC GW
+acc: mocha/M!a@s#Gxzs@!
+providerid: mocha
+serviceId: Mocha_ilucky
+api: http://10.120.53.24:8887/vcgw?wsdl
+
+Trang quan lý:  https://domain.tenten.vn/
+- Tên dang: ilucky.la
+pass: YRUrx2eONG
+
+thiet ke giao dien: hadcmono@gmail.com
+https://www.figma.com/file/mQUK1xptsh8MEW7xGYeiV4/iLucky-LaosApp?node-id=0%3A1
+---------------------------------------------
+Laoapp
+2094386032

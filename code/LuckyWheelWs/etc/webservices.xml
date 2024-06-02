@@ -1,0 +1,3 @@
+<list>
+	<webservice name='WsLuckyWheel' implementClass='com.vas.webservices.WsLuckyWheel' ip='127.0.0.1' port='8088' path='WsLuckyWheel'/>
+</list>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+@using ServiceAPI;
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Controllers;
+@using LuckyWheelWebCore.Extensions;
+@using System.Globalization;
+@using Newtonsoft.Json;
+
+
+@model PrizeObj
+
+@{
+    var prizeId = "10";
+    if (Model != null) {
+        prizeId = Model.prizeId;
+    }
+    var url = BaseController.RootHref + "/wheel/prize/" + prizeId + ".png";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="/favicon.ico?v=1.1" type="image/x-icon" />
+
+    <title>Unitel - iLucky - Lucky Wheel</title>
+    <meta name="title" content="Unitel - iLucky - Lucky Wheel" />
+    <meta name="description" content="Unitel - iLucky - Lucky Wheel" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@url" />
+    <meta property="og:title" content="Unitel - iLucky - Lucky Wheel" />
+    <meta property="og:description" content="Unitel - iLucky - Lucky Wheel" />
+    <meta property="og:image" content="@url" />
+    <meta property="fb:app_id" content="@BaseController.FacebookAppId" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="@url" />
+    <meta property="twitter:title" content="Unitel - iLucky - Lucky Wheel" />
+    <meta property="twitter:description" content="Unitel - iLucky - Lucky Wheel" />
+    <meta property="twitter:image" content="@url" />
+
+
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/draw.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/scrollbar.css" rel="stylesheet" />
+    <link href="~/js/bootstrap-toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/myluck/css/style.min.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/spin.css" />
+    <script src="~/js/spin.js"></script>
+    <script type="text/javascript" src="~/js/multiLanguajeDemo.js"></script>
+</head>
+
+<body style="scroll-x:none;" class="">
+
+    @Html.AntiForgeryToken()
+
+    @RenderBody()
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "LuckyDraw";
+}
+@using LuckyWheelWebCore.Source;
+
+
+
+<div id="modalNotSupport" class="modal fade" role="dialog" data-backdrop="static" style="font-size:1.1rem">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content ">
+
+            <img class="logo-modal" src="~/wheel/dia_delete.png" style="border-radius: 10px 10px 0 0" />
+            @*<img class="close close-modal" data-dismiss="modal" src="~/wheel/close_modal.png" />*@
+
+        <div class="modal-body">
+            <p class="p-header">@Lang.NotSupport</p>
+            <p class="p-content">@Lang.NotSupportDetail</p>
+            <p class="text-center">
+                <a class="btn btn-orange btn-small" href="mocha://back">@Lang.Close</a>
+            </p>
+        </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts{
+
+
+    <script>
+        showModal("modalNotSupport");
+    </script>
+}
+

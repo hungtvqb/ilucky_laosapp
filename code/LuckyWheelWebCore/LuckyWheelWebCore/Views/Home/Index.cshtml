@@ -1,0 +1,660 @@
+﻿
+@{
+    ViewBag.Title = "LuckyDraw";
+}
+@using ServiceAPI;
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Controllers;
+@using LuckyWheelWebCore.Extensions;
+@using System.Globalization;
+@using Newtonsoft.Json;
+@using Microsoft.AspNetCore.Http
+
+@inject IJsonHelper Json;
+
+@{
+    UserInfo userInfo = Context.Session.GetComplexData<UserInfo>("userInfo");
+    string listPrize = JsonConvert.SerializeObject(BaseController.ListPrize());
+    //string listAds = JsonConvert.SerializeObject(BaseController.ListAds());
+    var listMission = BaseController.ListMission();
+    var listAds = BaseController.ListAds();
+    List<LuckyQuestionUtils.segment> segments = BaseController.ListSegments();
+
+    String uuid = Context.Session.GetString("uuid");
+}
+
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/all.css'>
+<link rel="stylesheet" href="/demo/style.css">
+<style>
+    .prize-background {
+        background: url('../../myluck/images/prizebackground.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        min-height: 700px;
+    }
+
+    .modal {
+        text-align: center;
+    }
+</style>
+
+
+<div style="height: 770px;" id="drawwheel">
+    @*<label class="top left page_content" id="lblTotalPoint">Total point</label>*@
+    <input type="hidden" id="lastAction" value="@userInfo.spinTotal.lastAction" />
+    <div class="top-head">
+        <a class="top-head-img" href="mocha://back">
+            <img src="~/wheel/close.png" />
+        </a>
+        <div class="top-head-text">
+            @Lang.RemainSpin: <span id="lblRemain">@userInfo.total_spin</span>
+        </div>
+        <a href="/Home/UserPrize" class="head-text-right">
+            @userInfo.msisdn.Substring(BaseController.CountryCode.Length)
+        </a>
+    </div>
+    <div class="top-money">
+        <div class="top-money-img">
+            <img src="~/wheel/hu.png" />
+        </div>
+        <div class="top-money-text">
+            <span id="totalCoin">@LuckyQuestionUtils.totalCoin</span> @Lang.Currency
+        </div>
+        <div class="top-money-btn" onclick="RefreshHu();">
+            <img src="~/wheel/refresh.png" />
+        </div>
+    </div>
+    <div style="display:flex; padding-top: 10px">
+        <label class="lbl-top" id="lblSlogan">@Lang.SpinSlogan</label>
+    </div>
+
+    <!-- CANVAS TO DRAW -->
+    <div style="display:flex; padding-top: 20px; position:relative">
+        @*<canvas id="canvas" width="400" height="400" style="align-self: center;   margin-left: auto; margin-right: auto ">
+            </canvas>*@
+        <div class="wheel" id="canvas">
+            <div class="wheel__inner">
+                <img src="/demo/VongQuay.png" style="width: 100%" />
+            </div>
+
+            <img src="/demo/Kimquay.png" class="pointer" id="pointer" />
+
+            <!--<div class="wheel__arrow">
+            <img src="/demo/Kimquay.png" class="pointer" id="pointer" />-->
+            <!-- <button class="wheel__button">QUAY</button> -->
+            <!--</div>-->
+        </div>
+    </div>
+    @*<div style="display:flex; padding-top: 10px">
+            <label class=" ">@Lang.RemainSpin <span id="lblRemain">@userInfo.remain_spin</span></label>
+        </div>*@
+    <div style="display:flex; padding-top: 20px; position:relative">
+        <button type="button" class="btn-orange wheel__button" id="spin_button">
+            @Lang.Spin
+        </button>
+    </div>
+
+    <div style="display:flex; padding-top: 10px">
+        <a href="/Home/Guide" class="guide-link">@Lang.Guide</a>
+    </div>
+
+</div>
+
+<img id="wheelImage" />
+
+@section Scripts{
+    @*<script type="text/javascript" src="~/js/Winwheel.js"></script>*@
+    @*<script type="text/javascript" src="~/js/TweenMax.min.js"></script>*@
+    @*<script type="text/javascript" src="https://unpkg.com/gsap@2.1.2/./umd/TweenMax.js"></script>*@
+
+
+
+
+    <script src="/demo/script.js"></script>
+    <script>
+
+        var listPrize = JSON.parse('@Html.Raw(listPrize)');
+        var listMission = JSON.parse('@Html.Raw(JsonConvert.SerializeObject(listMission))');
+        var listAds = JSON.parse('@Html.Raw(JsonConvert.SerializeObject(listAds))');
+        var sAngle = 360 / listPrize.length;
+
+        var value = 0;
+        var repeat;
+        var countClicked = 0;
+        var clicked = false;
+        var startAngle = 0;
+        var startTime;
+
+        function stopWheel(content) {
+            console.log("stopWheel: " + content);
+            clicked = false;
+            countClicked = 0;
+            $("#spin_button").attr('disabled', false);
+        }
+
+        function getPosition(prize) {
+            console.log(prize);
+            console.log("startAngle: " + value % 360);
+
+            $(".wheel__inner").css("transition", "cubic-bezier(0.19, 1, 0.22, 1) 7s");
+
+            let random = startAngle - sAngle / 2 + sAngle * prize.id;
+            value += (360 - random);
+            value += 2 * 360; // quay them 5 vong
+            startAngle = value % 360;
+            $(".wheel__inner").css("transform", `rotate(${value}deg)`);
+
+            
+            setTimeout(function () {
+
+                stopWheel();
+                // show prize
+                if (prize.actionCode.startsWith("INVITE")) {
+                    randomInvite();
+                    $("#modalInvite .close-modal").hide();
+                    $("#modalInvite .logo-modal").attr("src", prize.image);
+                    $("#modalInvite").modal("show");
+                } else if (prize.actionCode.startsWith("MISSION")) {
+                    // random mission
+                    randomMission(listMission);
+                    $("#modalMission .close-modal").hide();
+                    $("#modalMission .logo-modal").attr("src", prize.image);
+                    $("#modalMission").modal("show");
+                } else if (prize.actionCode.startsWith("ADS")) {
+                    // random ADS
+                    randomAds(listAds);
+                    $("#modalMission .close-modal").hide();
+                    $("#modalMission").modal("show");
+                } else {
+                    $("#modalPrize .logo-modal").attr("src", prize.image);
+                    $("#modalPrize .p-header").html(prize.prizeName);
+                    $("#modalPrize .p-content").html(prize.description);
+                    $("#modalPrize .close-modal").hide();
+                    $("#modalPrize").modal("show");
+                }
+            }, 7000);
+        }
+
+        $('.wheel__button').click(function () {
+
+            $("#spin_button").attr('disabled', true);
+
+            if (clicked == true) {
+                countClicked++;
+
+            }
+            else {
+
+                clicked = true;
+
+                if (!validateSpin()) {
+                    stopWheel();
+                    return;
+                }
+
+                // repeat
+                startTime = new Date();
+                wheel();
+                repeat = setInterval(function () {
+                    wheel();
+                }, 1000);
+
+                $.ajax({
+                    url: "/Home/SpinAction",
+                    data: {
+                        __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                    },
+                    type: "POST",
+                    success: function (data) {
+                        console.log(data);
+                        if (data.error == "0") {
+                            //$("#prizeId").val(data.prize.id);
+                            $(".btn-share-facebook").attr("data-bind", data.prize.id);
+                            $(".btn-share-facebook").val(data.playId);
+                            //$(".btn-share-facebook").attr("href", "/Home/PrizeConfirm?prizeId=" + data.prize.id + "&playId=" + data.playId);
+
+                            // clear interval
+                            var now = new Date();
+                            var waitingTime = startTime - now;
+                            if (waitingTime < 3000) {
+                                waitingTime = 3000 - waitingTime;
+                            } else {
+                                waitingTime = 0;
+                            }
+                            setTimeout(function () {
+                                clearInterval(repeat);
+                                getPosition(data.prize);
+                            }, waitingTime);
+
+                            // change remain
+                            $("#lastAction").val(data.lastAction);
+                            $("#lblRemain").html(data.remainSpin);
+                            $("#totalCoin").html(data.totalCoin);
+                        } else {
+                            clearInterval(repeat);
+                            stopWheel(data.content);
+                            if (data.href != null && data.href != "") {
+                                location.href = data.href;
+                            }
+                        }
+                    },
+                    error: function (req, st, error) {
+                        clearInterval(repeat);
+                        stopWheel(error);
+                    }
+                });
+
+                //setTimeout(() => {
+                //    //Chia lấy dư cho 360 để lấy lượng quay không hoàn thành một vòng 360deg
+                //    getPosition(value % 360);
+                //}, 5000);
+            }
+        })
+        $('.congratulation__close').click(function () {
+            $('.congratulation').fadeOut();
+        })
+        $('.congratulation').click(function (event) {
+            if (event.target != this)
+                return;
+            $(this).fadeOut();
+        });
+
+
+        function wheel() {
+            let random = 4 * 360; //  quay 7 vong truoc //Math.floor((Math.random() * 360) + 7200);
+            value += random;
+            $(".wheel__inner").css("transition", "cubic-bezier(1, 1, 1, 1) 1s");
+            $(".wheel__inner").css("transform", `rotate(${value}deg)`);
+    };
+
+    </script>
+
+    <script>
+
+        function showModalBuyOtp() {
+            $(".modal-body-buy").hide();
+            $(".modal-body-otp").show();
+            $(".modal-body-result").hide();
+
+            $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_otp.png");
+        }
+
+        function showModalBuyTurn() {
+            $("#modalBuyTurn").modal("show");
+            $(".modal-body-buy").show();
+            $(".modal-body-otp").hide();
+            $(".modal-body-result").hide();
+
+            $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_delete.png");
+            $("#modalBuyTurn .p-content-error").html("");
+        }
+
+        function showModalResult(isSuccess) {
+            $(".modal-body-buy").hide();
+            $(".modal-body-otp").hide();
+            $(".modal-body-result").show();
+            if (isSuccess) {
+                $(".p-content-result").html('@Lang.BuyTurnSuccess');
+                $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_success.png");
+            } else {
+                $("#modalBuyTurn .logo-modal").attr("src", "/wheel/dia_close.png");
+            }
+        }
+
+        $(".btn-buy-otp").click(function () {
+            // send post
+            $.ajax({
+                url: "/Home/BuyTurnOtp",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        // show otp input
+                        showModalBuyOtp();
+
+                        $("#otp1").val("");
+                        $("#otp2").val("");
+                        $("#otp3").val("");
+                        $("#otp4").val("");
+                        $("#otp1").focus();
+                    } else {
+                        $(".p-content-error").html(data.content);
+                    }
+                },
+                error: function (req, st, error) {
+                    $(".p-content-otp").html("Error:  " + error);
+                }
+            });
+        });
+
+        $(".btn-buy-confirm").click(function () {
+            var otp = $("#otp1").val() + $("#otp2").val() + $("#otp3").val() + $("#otp4").val();
+            // send post
+            $.ajax({
+                url: "/Home/BuyTurnConfirm",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                    otp: otp
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+
+                        showModalResult(true);
+
+                    } else {
+                        if (data.error == "1500") {
+                            // not enough money
+                            $(".p-content-result").html(data.content);
+                            showModalResult(false);
+                        } else {
+                            $(".p-content-error").html(data.content);
+                        }
+                    }
+                },
+                error: function (req, st, error) {
+                    $(".p-content-otp").html("Error:  " + error);
+                }
+            });
+        });
+
+        $(".input-otp").on('keydown', function (e) {
+            if (e.which >= 48 && e.which <= 57) {
+                var num = String.fromCharCode();
+                $(this).val(num);
+            }
+        });
+
+        $(".input-otp").on('keyup', function (e) {
+            if (e.which >= 48 && e.which <= 57) {
+                $(this).next(".input-otp").focus();
+            }
+        });
+
+        function validateSpin() {
+            var remainSpin = parseInt($("#lblRemain").html());
+            console.log(remainSpin);
+            var lastAction = $("#lastAction").val();
+            if (lastAction != null) {
+                // do mission first
+                if (lastAction.startsWith("INVITE")) {
+                    randomInvite();
+                    $("#modalInvite .close-modal").hide();
+                    $("#modalInvite").modal("show");
+                    return false;
+                } else if (lastAction.startsWith("MISSION")) {
+                    // random mission
+                    randomMission(listMission);
+                    $("#modalMission .close-modal").hide();
+                    //
+                    $("#modalMission").modal("show");
+                    return false;
+                } else if (lastAction.startsWith("ADS")) {
+                    // random ads
+                    randomAds(listAds);
+                    $("#modalMission .close-modal").hide();
+                    //
+                    $("#modalMission").modal("show");
+                    return false;
+                }
+            }
+            if (remainSpin <= 0) {
+                console.log("return");
+                // alert buy spin
+                showModalBuyTurn();
+                return false;
+            }
+            return true;
+        }
+
+        function randomMission(listMission) {
+            var min = 1;
+            var max = listMission.length;
+            var idx = Math.floor(Math.random() * (max - min + 1) + min);
+
+            var mission = listMission[idx - 1];
+            var url = mission.url.replace("#uuid#", "@uuid");
+            var fullContent = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite"'
+                    + ' data-bind="' + url + '"'
+                    + ' data-action="MISSION"'
+                    + ' onclick="invite_action(&quot;MISSION&quot;,&quot;' + url + '&quot;)"'
+                    + '>@Lang.VisitLink'
+                    + '</button>';
+            $("#mission-content").html(fullContent);
+        }
+
+        function randomAds(listAds) {
+            var min = 1;
+            var max = listAds.length;
+            var idx = Math.floor(Math.random() * (max - min + 1) + min);
+
+            var ads = listAds[idx - 1];
+            console.log(ads);
+            var fullContent = '';
+            if (ads.videoUrl != null && ads.videoUrl != "") {
+                fullContent += '<video src="' + ads.videoUrl + '" id="video_ads" style="display:none"></video>';
+                fullContent += '<button type="button" class="btn btn-orange btn-small" id="btn-ads" action="video"'
+                    + ' onclick="view_ads();"'
+                    + '>@Lang.ViewAds'
+                    + '</button>';
+            } else {
+                fullContent += '<image src="' + ads.imageUrl + '" id="image_ads" style="display:none" />';
+                fullContent += '<button type="button" class="btn btn-orange btn-small" id="btn-ads" action="image"'
+                    + ' onclick="view_ads();"'
+                    + '>@Lang.ViewAds'
+                    + '</button>';
+            }
+
+
+            $("#mission-content").html(fullContent);
+        }
+
+        function randomInvite() {
+            var min = 1;
+            var max = 2;
+            var idx = Math.floor(Math.random() * (max - min + 1) + min);
+
+            var content;
+            if (idx == 1) {
+                content = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite" data-bind="whatsapp" data-action="INVITE" onclick="invite_action(&quot;INVITE&quot;,&quot;whatsapp&quot;)">@Lang.Invite</button>';
+            @*} else if (idx == 2) {
+                content = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite" data-bind="mocha" data-action="INVITE" onclick="invite_action(&quot;INVITE&quot;,&quot;mocha&quot;)">@Lang.Invite</button>';*@
+            } else if (idx == 2) {
+                content = '<button type="button" class="btn btn-invite btn-orange btn-small" id="btn-invite" data-bind="sms" data-action="INVITE"  onclick="invite_action(&quot;INVITE&quot;,&quot;sms&quot;)">@Lang.Invite</button>';
+            }
+
+
+            $("#invite-content").html(content);
+        }
+
+        $(".btn-confirm").click(function () {
+
+            $("#modalPrize .close-modal").show();
+            $("#modalPrize").modal("hide");
+
+            var remainSpin = parseInt($("#lblRemain").html());
+
+            if (remainSpin <= 0) {
+                // show modal buy turn
+                showModalBuyTurn();
+            }
+
+            //if (remainSpin <= 0) {
+            //    location.href = "/Home/Prize";
+            //} else {
+            //    $("#modalPrize").modal("hide");
+            //}
+        });
+
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+                return "Windows Phone";
+            }
+
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+
+            return "unknown";
+        }
+
+        function invite_action(action, url) {
+            startSpinner("btn-invite");
+            var content = encodeURIComponent('@Html.Raw(Lang.InviteContent)');
+            console.log(content);
+            if (action == "INVITE") {
+                switch (url) {
+                    case "mocha":
+                        //url = "mocha://share?ref=" + content;
+                        url = "mocha://invite";
+                        break;
+                    case "whatsapp":
+                        url = "mocha://browser?ref=" + encodeURIComponent("https://api.whatsapp.com/send?text=" + content);
+                        break;
+                    default:
+                        var agent = getMobileOperatingSystem();
+                        if (agent == "iOS") {
+                            url = "sms:&body=" + content;
+                        } else {
+                            url = "sms:?body=" + content;
+                        }
+                        break;
+                }
+
+                // show close button
+                $("#modalInvite .close-modal").show();
+            } else {
+                // show close button
+                $("#modalMission .close-modal").show();
+            }
+
+
+            $.ajax({
+                url: "/Home/DoMission",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                    actionCode: action,
+                    url: url
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        $("#lastAction").val("");
+
+                        console.log(data.href);
+                        if (data.href != null) {
+
+                        }
+                    } else {
+                        alert(data.content);
+                    }
+                },
+                error: function (req, st, error) {
+                    alert(error);
+                }
+            });
+            window.open(url, "_parent"); // -> not working on ios
+            //console.log(windowReference);
+            //windowReference.location = url;
+
+            stopSpinner("btn-invite");
+        }
+
+        function view_ads() {
+            var action = $("#btn-ads").attr('action');
+            if (action == "close") {
+                $("#btn-ads").attr('action', "view");
+                $("#modalMission").modal("hide");
+                $("#modalMission .close-modal").hide();
+            } else {
+                if (action == "video") {
+                    $("#video_ads").show();
+                    document.getElementById("video_ads").play();
+                } else if (action == "image") {
+                    $("#image_ads").show();
+                }
+                // disable button
+                $("#btn-ads").attr('disabled', true);
+                $("#btn-ads").attr('action', "close");
+                $("#btn-ads").html("5s");
+                // countdown
+                var countDownDate = new Date().getTime() + 5000;
+                var x = setInterval(function () {
+                    // Get today's date and time
+                    var now = new Date().getTime();
+                    var distance = countDownDate - now;
+                    var seconds = Math.round((distance % (1000 * 60)) / 1000);
+                    $("#btn-ads").html(seconds + "s");
+
+                    // If the count down is finished, write some text
+                    if (distance < 0) {
+                        clearInterval(x);
+                        // do mission
+                        $.ajax({
+                            url: "/Home/DoMission",
+                            data: {
+                                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                                actionCode: action
+                            },
+                            type: "POST",
+                            success: function (data) {
+                                console.log(data);
+                                if (data.error == "0") {
+                                    $("#lastAction").val("");
+                                } else {
+                                    console.log(data.content);
+                                }
+                            },
+                            error: function (req, st, error) {
+                                console.log(error);
+                            }
+                        });
+
+                        $("#btn-ads").attr('disabled', false);
+                        $("#btn-ads").html("@Lang.Close");
+                        $("#modalMission .close-modal").show();
+                    }
+                }, 1000);
+            }
+        }
+
+    </script>
+
+    <script>
+        function RefreshHu() {
+            $.ajax({
+                url: "/Home/RefreshHu",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        $("#totalCoin").html(data.totalCoin);
+                    } else {
+
+                    }
+                },
+                error: function (req, st, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+
+}

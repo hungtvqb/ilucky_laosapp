@@ -1,0 +1,1328 @@
+INFO  03:27:52 Application - Main is invoked
+ERROR 03:27:59 System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::ffff:127.0.0.1]:80
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+--- End of stack trace from previous location ---
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+   at WebSockets.Client.WebSocketClient.OpenBlocking(Uri uri) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Client\WebSocketClient.cs:line 98
+   at LuckyWheelWebCore.Startup.SocketClient(Object state) in D:\Repositories\Laos\LuckyWheel\LuckyWheelWebCore\LuckyWheelWebCore\Startup.cs:line 114
+INFO  03:27:59 Client terminated: Press any key
+INFO  03:37:41 Application - Main is invoked
+INFO  03:37:46 Connection not secure
+INFO  03:37:46 Handshake sent. Waiting for response.
+INFO  03:37:46 Handshake response received. Connection upgraded to WebSocket protocol.
+INFO  03:37:46 LuckyWheelWebCore.Program Client: Connection Opened
+INFO  03:37:46 LuckyWheelWebCore.Program Client: 20
+ERROR 03:45:01 Error identify msisdn: One or more errors occurred. (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10.120.52.5:8699))
+System.AggregateException: One or more errors occurred. (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10.120.52.5:8699))
+ ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10.120.52.5:8699)
+ ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|283_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.DefaultConnectAsync(SocketsHttpConnectionContext context, CancellationToken cancellationToken)
+   at System.Net.Http.ConnectHelper.ConnectAsync(Func`3 callback, DnsEndPoint endPoint, HttpRequestMessage requestMessage, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(Func`3 callback, DnsEndPoint endPoint, HttpRequestMessage requestMessage, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.SendAsyncCore(HttpRequestMessage request, HttpCompletionOption completionOption, Boolean async, Boolean emitTelemetryStartStop, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at LuckyWheelWebCore.Controllers.BaseController.SendPostParam(GetMsisdnReq obj, String type) in D:\Repositories\Laos\LuckyWheel\LuckyWheelWebCore\LuckyWheelWebCore\Controllers\BaseController.cs:line 319
+   at LuckyWheelWebCore.Controllers.BaseController.SendPostParam(ILog log, GetMsisdnReq obj, String type) in D:\Repositories\Laos\LuckyWheel\LuckyWheelWebCore\LuckyWheelWebCore\Controllers\BaseController.cs:line 306
+   at LuckyWheelWebCore.Controllers.BaseController.IdentifyMsisdn() in D:\Repositories\Laos\LuckyWheel\LuckyWheelWebCore\LuckyWheelWebCore\Controllers\BaseController.cs:line 276
+INFO  04:04:07 Application - Main is invoked
+ERROR 04:04:16 System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::ffff:127.0.0.1]:80
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+--- End of stack trace from previous location ---
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+   at WebSockets.Client.WebSocketClient.OpenBlocking(Uri uri) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Client\WebSocketClient.cs:line 98
+   at LuckyWheelWebCore.Startup.SocketClient(Object state) in D:\Repositories\Laos\LuckyWheel\LuckyWheelWebCore\LuckyWheelWebCore\Startup.cs:line 114
+INFO  04:04:16 Client terminated: Press any key
+INFO  04:04:59 Application - Main is invoked
+INFO  04:05:03 Connection not secure
+INFO  04:05:03 Handshake sent. Waiting for response.
+INFO  04:05:03 Handshake response received. Connection upgraded to WebSocket protocol.
+INFO  04:05:03 LuckyWheelWebCore.Program Client: Connection Opened
+INFO  04:05:10 LuckyWheelWebCore.Program Client: 20
+INFO  04:05:27 Application - Main is invoked
+INFO  04:05:31 Connection not secure
+INFO  04:05:31 Handshake sent. Waiting for response.
+INFO  04:05:31 Handshake response received. Connection upgraded to WebSocket protocol.
+INFO  04:05:31 LuckyWheelWebCore.Program Client: Connection Opened
+INFO  04:05:31 LuckyWheelWebCore.Program Client: 20
+INFO  04:09:43 LuckyWheelWebCore.Program Client: 25
+ERROR 04:43:34 System.IO.EndOfStreamException: Unexpected end of stream encountered whilst attempting to read 8 bytes
+   at WebSockets.Common.BinaryReaderWriter.ReadExactly(Int32 length, Stream stream) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Common\BinaryReaderWriter.cs:line 25
+   at WebSockets.Common.BinaryReaderWriter.ReadULongExactly(Stream stream, Boolean isLittleEndian) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Common\BinaryReaderWriter.cs:line 48
+   at WebSockets.Common.WebSocketFrameReader.ReadLength(Byte byte2, Stream stream) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Common\WebSocketFrameReader.cs:line 85
+   at WebSockets.Common.WebSocketFrameReader.Read(Stream stream, Socket socket) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Common\WebSocketFrameReader.cs:line 52
+   at WebSockets.Common.WebSocketBase.MainReadLoop() in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Common\WebSocketBase.cs:line 219
+   at WebSockets.Common.WebSocketBase.OpenBlocking(Stream stream, Socket socket, Boolean isClient) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Common\WebSocketBase.cs:line 46
+   at WebSockets.Client.WebSocketClient.OpenBlocking(Uri uri) in D:\Repositories\Laos\LuckyWheel\WebSockets\WebSockets\Client\WebSocketClient.cs:line 104
+   at LuckyWheelWebCore.Startup.SocketClient(Object state) in D:\Repositories\Laos\LuckyWheel\LuckyWheelWebCore\LuckyWheelWebCore\Startup.cs:line 114
+INFO  04:43:34 Client terminated: Press any key
+INFO  10:50:18 Application - Main is invoked
+INFO  10:50:24 Connection not secure
+INFO  10:50:24 Handshake sent. Waiting for response.
+INFO  10:50:24 Handshake response received. Connection upgraded to WebSocket protocol.
+INFO  10:50:24 LuckyWheelWebCore.Program Client: Connection Opened
+INFO  10:50:24 LuckyWheelWebCore.Program Client: 25
+INFO  10:50:38 LuckyWheelWebCore.Program Client: 30
+INFO  10:51:08 LuckyWheelWebCore.Program Client: 35
+INFO  11:09:02 Application - Main is invoked
+INFO  11:09:10 Loaded coin total: 35
+INFO  11:10:10 Updated coin total: 35
+INFO  11:11:10 Updated coin total: 35
+INFO  11:12:10 Updated coin total: 35
+INFO  11:13:11 Updated coin total: 35
+INFO  11:14:11 Updated coin total: 35
+INFO  11:15:11 Updated coin total: 35
+INFO  11:16:11 Updated coin total: 35
+INFO  11:17:11 Updated coin total: 35
+INFO  11:18:11 Updated coin total: 35
+INFO  11:19:12 Updated coin total: 35
+INFO  11:20:12 Updated coin total: 35
+INFO  11:21:12 Updated coin total: 35
+INFO  11:22:12 Updated coin total: 35
+INFO  11:23:12 Updated coin total: 35
+INFO  11:24:12 Updated coin total: 35
+INFO  11:25:12 Updated coin total: 35
+INFO  11:26:12 Updated coin total: 35
+INFO  11:27:12 Updated coin total: 35
+INFO  11:28:12 Updated coin total: 35
+INFO  11:29:12 Updated coin total: 35
+INFO  11:30:12 Updated coin total: 35
+INFO  11:31:13 Updated coin total: 35
+INFO  11:32:13 Updated coin total: 35
+INFO  11:33:13 Updated coin total: 35
+INFO  11:34:13 Updated coin total: 35
+INFO  11:35:13 Updated coin total: 35
+INFO  11:36:14 Updated coin total: 35
+INFO  11:37:14 Updated coin total: 35
+INFO  11:38:14 Updated coin total: 35
+INFO  11:39:14 Updated coin total: 35
+INFO  11:40:14 Updated coin total: 35
+INFO  11:41:14 Updated coin total: 35
+INFO  11:42:14 Updated coin total: 35
+INFO  11:43:14 Updated coin total: 35
+INFO  11:44:14 Updated coin total: 35
+INFO  11:45:15 Updated coin total: 35
+INFO  11:46:15 Updated coin total: 35
+INFO  11:47:15 Updated coin total: 35
+INFO  11:48:15 Updated coin total: 35
+INFO  11:49:15 Updated coin total: 35
+INFO  11:50:15 Updated coin total: 35
+INFO  11:51:15 Updated coin total: 35
+INFO  11:52:15 Updated coin total: 35
+INFO  11:53:15 Updated coin total: 35
+INFO  11:54:15 Updated coin total: 35
+INFO  11:55:15 Updated coin total: 35
+INFO  11:56:16 Updated coin total: 35
+INFO  11:57:16 Updated coin total: 35
+INFO  11:58:16 Updated coin total: 35
+INFO  11:59:17 Updated coin total: 35
+INFO  12:00:17 Updated coin total: 35
+INFO  12:01:17 Updated coin total: 35
+INFO  12:02:17 Updated coin total: 35
+INFO  12:03:17 Updated coin total: 35
+INFO  12:04:17 Updated coin total: 35
+INFO  12:05:17 Updated coin total: 35
+INFO  12:06:17 Updated coin total: 35
+INFO  12:07:17 Updated coin total: 35
+INFO  12:08:17 Updated coin total: 35
+INFO  12:09:17 Updated coin total: 35
+INFO  12:10:17 Updated coin total: 35
+INFO  12:11:18 Updated coin total: 35
+INFO  12:12:18 Updated coin total: 35
+INFO  12:13:18 Updated coin total: 35
+INFO  12:14:18 Updated coin total: 35
+INFO  12:15:18 Updated coin total: 35
+INFO  12:16:18 Updated coin total: 35
+INFO  12:17:18 Updated coin total: 35
+INFO  12:18:18 Updated coin total: 35
+INFO  12:19:18 Updated coin total: 35
+INFO  12:20:18 Updated coin total: 35
+INFO  12:21:18 Updated coin total: 35
+INFO  12:22:18 Updated coin total: 35
+INFO  12:23:19 Updated coin total: 35
+INFO  12:24:19 Updated coin total: 35
+INFO  12:25:19 Updated coin total: 35
+INFO  12:26:19 Updated coin total: 35
+INFO  12:27:19 Updated coin total: 35
+INFO  12:28:19 Updated coin total: 35
+INFO  12:29:19 Updated coin total: 35
+INFO  12:30:19 Updated coin total: 35
+INFO  12:31:19 Updated coin total: 35
+INFO  12:32:19 Updated coin total: 35
+INFO  12:33:19 Updated coin total: 35
+INFO  12:34:19 Updated coin total: 35
+INFO  12:35:19 Updated coin total: 35
+INFO  12:36:19 Updated coin total: 35
+INFO  12:37:19 Updated coin total: 35
+INFO  12:38:19 Updated coin total: 35
+INFO  12:39:19 Updated coin total: 35
+INFO  12:40:20 Updated coin total: 35
+INFO  12:41:20 Updated coin total: 35
+INFO  12:42:20 Updated coin total: 35
+INFO  12:43:20 Updated coin total: 35
+INFO  12:44:20 Updated coin total: 35
+INFO  12:45:20 Updated coin total: 35
+INFO  12:46:20 Updated coin total: 35
+INFO  12:47:20 Updated coin total: 35
+INFO  12:48:20 Updated coin total: 35
+INFO  12:49:20 Updated coin total: 35
+INFO  12:50:20 Updated coin total: 35
+INFO  12:51:20 Updated coin total: 35
+INFO  12:52:20 Updated coin total: 35
+INFO  12:53:20 Updated coin total: 35
+INFO  12:54:21 Updated coin total: 35
+INFO  12:55:21 Updated coin total: 35
+INFO  12:56:21 Updated coin total: 35
+INFO  12:57:21 Updated coin total: 35
+INFO  12:58:21 Updated coin total: 35
+INFO  12:59:21 Updated coin total: 35
+INFO  01:00:21 Updated coin total: 35
+INFO  01:01:21 Updated coin total: 35
+INFO  01:02:21 Updated coin total: 35
+INFO  01:03:21 Updated coin total: 35
+INFO  01:04:21 Updated coin total: 35
+INFO  01:05:21 Updated coin total: 35
+INFO  01:06:21 Updated coin total: 35
+INFO  01:07:21 Updated coin total: 35
+INFO  01:08:21 Updated coin total: 35
+INFO  01:09:21 Updated coin total: 35
+INFO  01:10:21 Updated coin total: 35
+INFO  01:11:21 Updated coin total: 35
+INFO  01:12:22 Updated coin total: 35
+INFO  01:13:22 Updated coin total: 35
+INFO  01:14:22 Updated coin total: 35
+INFO  01:15:22 Updated coin total: 35
+INFO  01:16:22 Updated coin total: 35
+INFO  01:17:22 Updated coin total: 35
+INFO  01:18:22 Updated coin total: 35
+INFO  01:19:22 Updated coin total: 35
+INFO  01:20:22 Updated coin total: 35
+INFO  01:21:22 Updated coin total: 35
+INFO  01:22:22 Updated coin total: 35
+INFO  01:23:22 Updated coin total: 35
+INFO  01:24:22 Updated coin total: 35
+INFO  01:25:22 Updated coin total: 35
+INFO  01:26:22 Updated coin total: 35
+INFO  01:27:22 Updated coin total: 35
+INFO  01:28:22 Updated coin total: 35
+INFO  01:29:22 Updated coin total: 35
+INFO  01:30:23 Updated coin total: 35
+INFO  01:31:23 Updated coin total: 35
+INFO  01:32:23 Updated coin total: 35
+INFO  01:33:23 Updated coin total: 35
+INFO  01:34:23 Updated coin total: 35
+INFO  01:35:23 Updated coin total: 35
+INFO  01:36:23 Updated coin total: 35
+INFO  01:37:23 Updated coin total: 35
+INFO  01:38:23 Updated coin total: 35
+INFO  01:39:23 Updated coin total: 35
+INFO  01:40:09 Application - Main is invoked
+INFO  01:40:11 Loaded coin total: 35
+INFO  01:41:11 Updated coin total: 35
+INFO  01:42:11 Updated coin total: 35
+INFO  01:43:11 Updated coin total: 35
+INFO  01:44:11 Updated coin total: 35
+INFO  01:45:11 Updated coin total: 35
+INFO  01:46:11 Updated coin total: 35
+INFO  03:44:53 Application - Main is invoked
+INFO  03:44:57 Loaded coin total: 35
+INFO  03:45:32 Application - Main is invoked
+INFO  03:45:34 Loaded coin total: 35
+INFO  02:47:42 Application - Main is invoked
+INFO  02:47:48 Loaded coin total: 35
+INFO  02:48:48 Updated coin total: 35
+INFO  02:49:48 Updated coin total: 35
+INFO  02:50:48 Updated coin total: 35
+INFO  02:51:48 Updated coin total: 35
+INFO  02:52:48 Updated coin total: 35
+INFO  02:53:48 Updated coin total: 35
+INFO  02:54:48 Updated coin total: 35
+INFO  02:55:49 Updated coin total: 35
+INFO  02:56:49 Updated coin total: 35
+INFO  02:57:49 Updated coin total: 40
+INFO  02:58:49 Updated coin total: 40
+INFO  02:59:49 Updated coin total: 40
+INFO  03:00:49 Updated coin total: 40
+INFO  03:01:49 Updated coin total: 40
+INFO  03:02:49 Updated coin total: 40
+INFO  03:03:49 Updated coin total: 40
+INFO  03:04:49 Updated coin total: 40
+INFO  03:05:49 Updated coin total: 40
+INFO  03:06:49 Updated coin total: 40
+INFO  03:07:49 Updated coin total: 40
+INFO  03:08:49 Updated coin total: 40
+INFO  03:09:50 Updated coin total: 40
+INFO  03:10:50 Updated coin total: 40
+INFO  03:11:50 Updated coin total: 40
+INFO  03:12:50 Updated coin total: 40
+INFO  03:13:50 Updated coin total: 40
+INFO  03:14:50 Updated coin total: 40
+INFO  03:15:50 Updated coin total: 40
+INFO  03:16:50 Updated coin total: 40
+INFO  03:17:50 Updated coin total: 40
+INFO  03:18:50 Updated coin total: 50
+INFO  03:19:50 Updated coin total: 50
+INFO  03:20:50 Updated coin total: 50
+INFO  03:21:50 Updated coin total: 50
+INFO  03:22:50 Updated coin total: 50
+INFO  03:23:50 Updated coin total: 50
+INFO  03:24:50 Updated coin total: 50
+INFO  03:25:51 Updated coin total: 50
+INFO  03:26:51 Updated coin total: 50
+INFO  03:27:51 Updated coin total: 50
+INFO  03:28:51 Updated coin total: 50
+INFO  03:29:51 Updated coin total: 50
+INFO  03:30:51 Updated coin total: 50
+INFO  03:31:51 Updated coin total: 50
+INFO  03:32:52 Updated coin total: 50
+INFO  03:33:52 Updated coin total: 50
+INFO  03:34:52 Updated coin total: 50
+INFO  03:35:52 Updated coin total: 50
+INFO  03:36:52 Updated coin total: 50
+INFO  03:37:52 Updated coin total: 50
+INFO  03:38:52 Updated coin total: 50
+INFO  03:39:52 Updated coin total: 50
+INFO  03:40:52 Updated coin total: 50
+INFO  03:41:52 Updated coin total: 50
+INFO  03:42:53 Updated coin total: 50
+INFO  03:43:53 Updated coin total: 50
+INFO  03:51:46 Application - Main is invoked
+INFO  03:51:49 Loaded coin total: 50
+INFO  03:52:49 Updated coin total: 50
+INFO  03:53:49 Updated coin total: 50
+INFO  03:54:49 Updated coin total: 50
+INFO  03:55:49 Updated coin total: 50
+INFO  03:56:49 Updated coin total: 55
+INFO  03:57:50 Updated coin total: 55
+INFO  09:39:14 Application - Main is invoked
+INFO  09:39:18 Loaded coin total: 55
+INFO  09:40:18 Updated coin total: 60
+INFO  10:42:09 Application - Main is invoked
+INFO  10:46:15 Application - Main is invoked
+INFO  10:46:18 Loaded coin total: 60
+INFO  10:47:19 Updated coin total: 60
+INFO  10:48:19 Updated coin total: 60
+INFO  10:49:19 Updated coin total: 60
+INFO  10:50:19 Updated coin total: 60
+INFO  10:51:19 Updated coin total: 60
+INFO  08:46:18 Application - Main is invoked
+INFO  08:50:59 Application - Main is invoked
+INFO  08:51:01 Loaded coin total: 60
+INFO  08:52:01 Updated coin total: 60
+INFO  08:53:01 Updated coin total: 60
+INFO  08:54:01 Updated coin total: 60
+INFO  08:55:01 Updated coin total: 60
+INFO  08:56:01 Updated coin total: 60
+INFO  08:57:02 Updated coin total: 60
+INFO  08:58:02 Updated coin total: 60
+INFO  08:59:02 Updated coin total: 60
+INFO  09:00:02 Updated coin total: 60
+INFO  09:01:03 Updated coin total: 60
+INFO  09:02:03 Updated coin total: 60
+INFO  09:03:03 Updated coin total: 60
+INFO  09:04:03 Updated coin total: 60
+INFO  09:05:03 Updated coin total: 60
+INFO  09:06:03 Updated coin total: 60
+INFO  09:07:03 Updated coin total: 60
+INFO  09:08:03 Updated coin total: 60
+INFO  09:09:03 Updated coin total: 60
+INFO  09:10:03 Updated coin total: 60
+INFO  09:11:04 Updated coin total: 60
+INFO  09:12:04 Updated coin total: 60
+INFO  09:13:04 Updated coin total: 60
+INFO  09:14:04 Updated coin total: 60
+INFO  09:15:04 Updated coin total: 60
+INFO  09:16:04 Updated coin total: 60
+INFO  09:17:04 Updated coin total: 60
+INFO  09:18:04 Updated coin total: 60
+INFO  09:19:05 Updated coin total: 60
+INFO  09:20:05 Updated coin total: 60
+INFO  09:21:05 Updated coin total: 60
+INFO  09:22:05 Updated coin total: 60
+INFO  09:23:05 Updated coin total: 60
+INFO  09:24:05 Updated coin total: 60
+INFO  09:25:05 Updated coin total: 60
+INFO  09:26:05 Updated coin total: 60
+INFO  09:27:05 Updated coin total: 60
+INFO  09:28:05 Updated coin total: 60
+INFO  09:29:05 Updated coin total: 60
+INFO  09:30:05 Updated coin total: 60
+INFO  09:31:05 Updated coin total: 60
+INFO  09:32:05 Updated coin total: 60
+INFO  09:33:06 Updated coin total: 60
+INFO  09:34:06 Updated coin total: 60
+INFO  09:35:06 Updated coin total: 60
+INFO  09:36:06 Updated coin total: 60
+INFO  09:37:06 Updated coin total: 60
+INFO  09:38:06 Updated coin total: 60
+INFO  09:39:07 Updated coin total: 60
+INFO  10:27:23 Application - Main is invoked
+INFO  11:42:43 Application - Main is invoked
+INFO  10:49:27 Application - Main is invoked
+INFO  10:49:29 Loaded coin total: 60
+INFO  10:50:29 Updated coin total: 60
+INFO  10:51:29 Updated coin total: 65
+INFO  10:52:29 Updated coin total: 65
+INFO  02:49:42 Application - Main is invoked
+INFO  02:49:44 Loaded coin total: 65
+INFO  02:50:44 Updated coin total: 70
+INFO  02:51:44 Updated coin total: 70
+INFO  02:41:45 Application - Main is invoked
+INFO  02:42:50 Application - Main is invoked
+INFO  02:42:56 Loaded coin total: 70
+INFO  02:43:59 Updated coin total: 70
+INFO  02:45:01 Updated coin total: 70
+INFO  02:46:04 Updated coin total: 70
+INFO  02:47:07 Updated coin total: 75
+INFO  02:48:11 Updated coin total: 80
+INFO  02:49:14 Updated coin total: 80
+INFO  02:50:14 Updated coin total: 80
+INFO  02:51:14 Updated coin total: 80
+INFO  02:52:14 Updated coin total: 80
+INFO  02:53:14 Updated coin total: 85
+INFO  02:54:14 Updated coin total: 90
+INFO  02:55:14 Updated coin total: 90
+INFO  02:56:14 Updated coin total: 90
+INFO  02:57:14 Updated coin total: 90
+INFO  02:58:15 Updated coin total: 90
+INFO  02:59:15 Updated coin total: 90
+INFO  03:00:15 Updated coin total: 90
+INFO  03:01:15 Updated coin total: 90
+INFO  03:02:15 Updated coin total: 95
+INFO  03:03:15 Updated coin total: 110
+INFO  03:04:16 Updated coin total: 110
+INFO  03:05:16 Updated coin total: 125
+INFO  03:11:12 Application - Main is invoked
+INFO  03:11:14 Loaded coin total: 125
+INFO  03:12:14 Updated coin total: 125
+INFO  03:13:14 Updated coin total: 125
+INFO  03:14:14 Updated coin total: 125
+INFO  03:15:15 Updated coin total: 125
+INFO  03:16:15 Updated coin total: 125
+INFO  03:17:15 Updated coin total: 125
+INFO  03:18:15 Updated coin total: 125
+INFO  03:19:15 Updated coin total: 125
+INFO  03:20:15 Updated coin total: 125
+INFO  03:21:15 Updated coin total: 125
+INFO  03:22:15 Updated coin total: 125
+INFO  03:23:15 Updated coin total: 125
+INFO  03:24:15 Updated coin total: 125
+INFO  03:25:16 Updated coin total: 125
+INFO  03:26:16 Updated coin total: 125
+INFO  03:27:16 Updated coin total: 125
+INFO  03:28:16 Updated coin total: 125
+INFO  03:29:16 Updated coin total: 125
+INFO  03:30:16 Updated coin total: 125
+INFO  03:31:16 Updated coin total: 125
+INFO  03:32:16 Updated coin total: 125
+INFO  03:33:16 Updated coin total: 125
+INFO  03:34:16 Updated coin total: 125
+INFO  03:35:17 Updated coin total: 125
+INFO  03:36:17 Updated coin total: 125
+INFO  03:37:17 Updated coin total: 130
+INFO  03:38:17 Updated coin total: 130
+INFO  03:39:17 Updated coin total: 130
+INFO  03:40:17 Updated coin total: 130
+INFO  03:41:17 Updated coin total: 130
+INFO  03:42:17 Updated coin total: 130
+INFO  03:43:17 Updated coin total: 130
+INFO  03:44:17 Updated coin total: 130
+INFO  03:45:17 Updated coin total: 130
+INFO  03:46:17 Updated coin total: 130
+INFO  03:47:17 Updated coin total: 130
+INFO  03:48:17 Updated coin total: 130
+INFO  03:49:18 Updated coin total: 130
+INFO  03:50:22 Updated coin total: 130
+INFO  03:51:25 Updated coin total: 130
+INFO  03:52:28 Updated coin total: 130
+INFO  03:53:31 Updated coin total: 130
+INFO  03:54:34 Updated coin total: 130
+INFO  03:55:38 Updated coin total: 130
+INFO  03:56:41 Updated coin total: 130
+INFO  03:57:44 Updated coin total: 130
+INFO  03:58:47 Updated coin total: 130
+INFO  03:59:51 Updated coin total: 130
+INFO  04:00:53 Updated coin total: 130
+INFO  04:01:57 Updated coin total: 130
+INFO  04:03:00 Updated coin total: 130
+INFO  04:04:04 Updated coin total: 130
+INFO  04:05:07 Updated coin total: 130
+INFO  04:06:10 Updated coin total: 130
+INFO  04:07:13 Updated coin total: 130
+INFO  04:08:17 Updated coin total: 130
+INFO  04:09:20 Updated coin total: 130
+INFO  04:10:23 Updated coin total: 130
+INFO  04:11:26 Updated coin total: 130
+INFO  04:12:33 Updated coin total: 130
+INFO  04:13:36 Updated coin total: 130
+INFO  04:14:42 Updated coin total: 130
+INFO  04:15:45 Updated coin total: 130
+INFO  04:16:35 Application - Main is invoked
+INFO  04:16:41 Loaded coin total: 130
+INFO  04:17:45 Updated coin total: 130
+INFO  04:18:48 Updated coin total: 130
+INFO  04:19:51 Updated coin total: 130
+INFO  04:20:54 Updated coin total: 130
+INFO  04:21:58 Updated coin total: 140
+INFO  04:23:02 Updated coin total: 140
+INFO  04:24:05 Updated coin total: 140
+INFO  04:25:08 Updated coin total: 140
+INFO  04:26:12 Updated coin total: 140
+INFO  04:27:15 Updated coin total: 145
+INFO  04:28:18 Updated coin total: 150
+INFO  05:15:26 Application - Main is invoked
+INFO  05:15:33 Loaded coin total: 150
+INFO  05:16:33 Updated coin total: 150
+INFO  05:17:33 Updated coin total: 150
+INFO  05:18:33 Updated coin total: 150
+INFO  05:19:33 Updated coin total: 150
+INFO  05:20:34 Updated coin total: 150
+INFO  05:21:34 Updated coin total: 150
+INFO  05:22:34 Updated coin total: 150
+INFO  05:23:34 Updated coin total: 150
+INFO  05:24:34 Updated coin total: 150
+INFO  05:25:34 Updated coin total: 150
+INFO  05:26:35 Updated coin total: 150
+INFO  05:27:35 Updated coin total: 150
+INFO  05:28:35 Updated coin total: 150
+INFO  05:29:35 Updated coin total: 150
+INFO  05:30:36 Updated coin total: 150
+INFO  05:31:36 Updated coin total: 150
+INFO  05:32:36 Updated coin total: 150
+INFO  05:33:36 Updated coin total: 150
+INFO  05:34:36 Updated coin total: 150
+INFO  05:35:36 Updated coin total: 150
+INFO  05:36:37 Updated coin total: 150
+INFO  05:37:37 Updated coin total: 150
+INFO  05:38:37 Updated coin total: 150
+INFO  05:39:37 Updated coin total: 150
+INFO  05:40:37 Updated coin total: 150
+INFO  05:41:38 Updated coin total: 150
+INFO  05:42:38 Updated coin total: 150
+INFO  05:43:38 Updated coin total: 150
+INFO  05:44:38 Updated coin total: 150
+INFO  05:45:38 Updated coin total: 150
+INFO  05:46:38 Updated coin total: 150
+INFO  05:47:38 Updated coin total: 150
+INFO  05:48:39 Updated coin total: 150
+INFO  05:49:39 Updated coin total: 150
+INFO  05:50:39 Updated coin total: 150
+INFO  05:51:39 Updated coin total: 150
+INFO  05:52:39 Updated coin total: 150
+INFO  05:53:39 Updated coin total: 150
+INFO  06:51:28 Updated coin total: 150
+INFO  06:52:28 Updated coin total: 150
+INFO  06:53:28 Updated coin total: 150
+INFO  06:54:28 Updated coin total: 150
+INFO  06:55:28 Updated coin total: 150
+INFO  06:56:28 Updated coin total: 150
+INFO  06:57:29 Updated coin total: 150
+INFO  06:58:29 Updated coin total: 150
+INFO  06:59:29 Updated coin total: 150
+INFO  07:00:29 Updated coin total: 150
+INFO  07:01:29 Updated coin total: 150
+INFO  07:02:29 Updated coin total: 150
+INFO  07:03:29 Updated coin total: 150
+INFO  07:04:30 Updated coin total: 150
+INFO  07:05:30 Updated coin total: 150
+INFO  07:06:30 Updated coin total: 150
+INFO  07:07:30 Updated coin total: 150
+INFO  07:08:30 Updated coin total: 150
+INFO  07:09:30 Updated coin total: 150
+INFO  07:10:31 Updated coin total: 150
+INFO  07:11:31 Updated coin total: 150
+INFO  07:12:31 Updated coin total: 150
+INFO  07:13:31 Updated coin total: 150
+INFO  07:14:31 Updated coin total: 150
+INFO  07:15:31 Updated coin total: 150
+INFO  07:16:32 Updated coin total: 150
+INFO  07:17:32 Updated coin total: 150
+INFO  07:18:32 Updated coin total: 150
+INFO  07:19:32 Updated coin total: 150
+INFO  07:20:32 Updated coin total: 150
+INFO  07:21:32 Updated coin total: 150
+INFO  07:22:32 Updated coin total: 150
+INFO  07:23:33 Updated coin total: 150
+INFO  07:24:33 Updated coin total: 150
+INFO  07:25:33 Updated coin total: 150
+INFO  07:40:16 Updated coin total: 150
+INFO  07:41:16 Updated coin total: 150
+INFO  07:42:17 Updated coin total: 150
+INFO  07:43:17 Updated coin total: 150
+INFO  07:44:17 Updated coin total: 150
+INFO  07:45:17 Updated coin total: 150
+INFO  07:46:17 Updated coin total: 150
+INFO  07:47:17 Updated coin total: 150
+INFO  07:48:17 Updated coin total: 150
+INFO  07:49:18 Updated coin total: 150
+INFO  07:50:18 Updated coin total: 150
+INFO  07:51:18 Updated coin total: 150
+INFO  07:52:18 Updated coin total: 150
+INFO  07:53:18 Updated coin total: 150
+INFO  07:54:18 Updated coin total: 150
+INFO  07:55:19 Updated coin total: 150
+INFO  07:56:19 Updated coin total: 150
+INFO  07:57:19 Updated coin total: 150
+INFO  07:58:19 Updated coin total: 150
+INFO  07:59:19 Updated coin total: 150
+INFO  08:00:19 Updated coin total: 150
+INFO  08:01:19 Updated coin total: 150
+INFO  08:02:20 Updated coin total: 150
+INFO  08:03:20 Updated coin total: 150
+INFO  08:04:20 Updated coin total: 150
+INFO  08:05:20 Updated coin total: 150
+INFO  08:06:20 Updated coin total: 150
+INFO  08:07:20 Updated coin total: 150
+INFO  08:08:21 Updated coin total: 150
+INFO  08:09:21 Updated coin total: 150
+INFO  08:10:21 Updated coin total: 150
+INFO  08:11:21 Updated coin total: 150
+INFO  08:12:21 Updated coin total: 150
+INFO  08:13:21 Updated coin total: 150
+INFO  08:14:22 Updated coin total: 150
+INFO  08:15:22 Updated coin total: 150
+INFO  08:16:22 Updated coin total: 150
+INFO  08:32:06 Updated coin total: 150
+INFO  08:33:06 Updated coin total: 150
+INFO  08:34:06 Updated coin total: 150
+INFO  08:35:06 Updated coin total: 150
+INFO  08:36:06 Updated coin total: 150
+INFO  08:37:07 Updated coin total: 150
+INFO  08:38:07 Updated coin total: 150
+INFO  08:39:07 Updated coin total: 150
+INFO  08:40:07 Updated coin total: 150
+INFO  08:41:07 Updated coin total: 150
+INFO  08:42:07 Updated coin total: 150
+INFO  08:43:08 Updated coin total: 150
+INFO  08:44:08 Updated coin total: 150
+INFO  08:45:08 Updated coin total: 150
+INFO  08:46:08 Updated coin total: 150
+INFO  08:47:08 Updated coin total: 150
+INFO  08:48:09 Updated coin total: 150
+INFO  08:49:09 Updated coin total: 150
+INFO  08:50:09 Updated coin total: 150
+INFO  08:51:09 Updated coin total: 150
+INFO  08:52:09 Updated coin total: 150
+INFO  08:53:09 Updated coin total: 150
+INFO  08:54:10 Updated coin total: 150
+INFO  08:55:10 Updated coin total: 150
+INFO  08:56:10 Updated coin total: 150
+INFO  08:57:10 Updated coin total: 150
+INFO  08:58:10 Updated coin total: 150
+INFO  08:59:10 Updated coin total: 150
+INFO  09:00:11 Updated coin total: 150
+INFO  09:01:11 Updated coin total: 150
+INFO  09:02:11 Updated coin total: 150
+INFO  09:03:11 Updated coin total: 150
+INFO  09:04:11 Updated coin total: 150
+INFO  09:05:11 Updated coin total: 150
+INFO  09:06:12 Updated coin total: 150
+INFO  09:07:12 Updated coin total: 150
+INFO  09:08:12 Updated coin total: 150
+INFO  09:09:12 Updated coin total: 150
+INFO  09:10:12 Updated coin total: 150
+INFO  09:11:12 Updated coin total: 150
+INFO  09:12:13 Updated coin total: 150
+INFO  09:13:13 Updated coin total: 150
+INFO  08:51:01 Application - Main is invoked
+INFO  08:51:09 Loaded coin total: 150
+INFO  08:52:09 Updated coin total: 150
+INFO  08:53:09 Updated coin total: 150
+INFO  08:54:09 Updated coin total: 150
+INFO  08:55:18 Updated coin total: 155
+INFO  08:56:23 Updated coin total: 155
+INFO  08:57:23 Updated coin total: 160
+INFO  08:58:23 Updated coin total: 160
+INFO  08:59:24 Updated coin total: 160
+INFO  09:00:24 Updated coin total: 165
+INFO  09:00:32 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  09:01:24 Updated coin total: 170
+INFO  09:01:29 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  09:02:24 Updated coin total: 180
+INFO  09:02:36 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  09:03:24 Updated coin total: 190
+INFO  09:04:26 Updated coin total: 190
+INFO  09:05:26 Updated coin total: 190
+INFO  09:06:26 Updated coin total: 190
+INFO  09:07:26 Updated coin total: 190
+INFO  09:08:27 Updated coin total: 190
+INFO  09:09:27 Updated coin total: 190
+INFO  09:10:27 Updated coin total: 190
+INFO  09:11:27 Updated coin total: 190
+INFO  09:12:27 Updated coin total: 190
+INFO  09:13:27 Updated coin total: 190
+INFO  09:14:27 Updated coin total: 190
+INFO  09:15:28 Updated coin total: 190
+INFO  09:16:28 Updated coin total: 190
+INFO  09:17:28 Updated coin total: 190
+INFO  09:18:28 Updated coin total: 190
+INFO  09:19:28 Updated coin total: 190
+INFO  09:20:29 Updated coin total: 190
+INFO  09:21:29 Updated coin total: 190
+INFO  09:22:29 Updated coin total: 190
+INFO  09:23:29 Updated coin total: 190
+INFO  09:24:29 Updated coin total: 190
+INFO  09:25:29 Updated coin total: 190
+INFO  09:26:30 Updated coin total: 190
+INFO  09:27:30 Updated coin total: 190
+INFO  09:28:30 Updated coin total: 190
+INFO  09:29:30 Updated coin total: 190
+INFO  09:30:30 Updated coin total: 190
+INFO  09:31:30 Updated coin total: 190
+INFO  09:32:31 Updated coin total: 190
+INFO  09:33:31 Updated coin total: 190
+INFO  09:34:31 Updated coin total: 190
+INFO  09:35:31 Updated coin total: 190
+INFO  09:36:31 Updated coin total: 190
+INFO  09:37:31 Updated coin total: 190
+INFO  09:38:31 Updated coin total: 190
+INFO  09:39:32 Updated coin total: 190
+INFO  09:40:32 Updated coin total: 190
+INFO  09:41:32 Updated coin total: 190
+INFO  09:42:32 Updated coin total: 190
+INFO  09:43:32 Updated coin total: 190
+INFO  09:43:35 Do mission: 8562091442617, INVITE, mocha://browser?ref=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Ftext%3D%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%2520LaoApp%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%2520500%2520MB%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252025%2520%25E0%25BA%2599%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%259E%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BB%2583%25E0%25BA%2599%25E0%25BB%2580%25E0%25BA%2584%25E0%25BA%25B7%25E0%25BA%25AD%25E0%25BA%2582%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%258D%2520%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B7%2520%25E0%25BB%2580%25E0%25BA%259A%25E0%25BA%25B4%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%2588%25E0%25BA%25B3%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%2594%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252030%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%25E0%25BB%2583%25E0%25BA%2599%2520Uclip%2520%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%2520https%253A%252F%252Fbit.ly%252F301Fo3k%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AA%25E0%25BA%25BB%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%2582%25E0%25BB%258D%25E0%25BB%2589%25E0%25BA%2584%25E0%25BA%25A7%25E0%25BA%25B2%25E0%25BA%25A1%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252C%2520%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2599%252C%2520%25E0%25BA%259F%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%2587%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BB%2580%25E0%25BA%25AA%25E0%25BA%258D%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%25E2%2580%25A6%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%2520%25E0%25BA%258D%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BA%25A1%25E0%25BA%25B5%25E0%25BB%2580%25E0%25BA%2581%25E0%25BA%25A1%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BB%2583%25E0%25BA%25AB%25E0%25BB%2589%25E0%25BA%2597%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25A5%25E0%25BA%25B4%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B8%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2582%25E0%25BA%25AD%25E0%25BA%2587%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%25A1%25E0%25BA%25B9%25E0%25BA%2599%25E0%25BA%2584%25E0%25BB%2588%25E0%25BA%25B2%25201.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B8%25E0%25BA%2581%25E0%25BB%2586%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252010.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B4%25E0%25BA%2594.%2520LaoApp%2520%25E0%25BA%258A%25E0%25BA%25B8%25E0%25BA%259A%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%2581%25E0%25BA%25B3%25E0%25BA%25A5%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%2599%25E0%25BA%25B4%25E0%25BA%258D%25E0%25BA%25BB%25E0%25BA%25A1%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%25AA%25E0%25BA%25B8%25E0%25BA%2594%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%25A7%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%259C%25E0%25BA%25B9%25E0%25BB%2589%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BA%2599%25E0%25BA%25B3%25E0%25BB%2583%25E0%25BA%258A%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%2581%25E0%25BA%25A7%25E0%25BB%2588%25E0%25BA%25B2%25201%252C5%2520%25E0%25BA%25A5%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BA%2584%25E0%25BA%25BB%25E0%25BA%2599.
+INFO  09:43:52 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fdantri.com.vn%2F
+INFO  09:44:32 Updated coin total: 195
+INFO  09:45:33 Updated coin total: 195
+INFO  09:46:33 Updated coin total: 195
+INFO  09:47:33 Updated coin total: 195
+INFO  09:48:33 Updated coin total: 195
+INFO  09:49:33 Updated coin total: 195
+INFO  09:50:33 Updated coin total: 195
+INFO  09:51:34 Updated coin total: 195
+INFO  09:52:34 Updated coin total: 195
+INFO  09:53:34 Updated coin total: 195
+INFO  10:22:32 Application - Main is invoked
+INFO  10:22:37 Loaded coin total: 195
+INFO  10:23:39 Updated coin total: 195
+INFO  10:24:42 Updated coin total: 195
+INFO  10:25:44 Updated coin total: 195
+INFO  10:26:47 Updated coin total: 195
+INFO  10:27:48 Updated coin total: 195
+INFO  10:28:50 Updated coin total: 195
+INFO  10:29:52 Updated coin total: 195
+INFO  10:30:55 Updated coin total: 195
+INFO  10:31:57 Updated coin total: 195
+INFO  10:32:58 Updated coin total: 195
+INFO  10:34:00 Updated coin total: 195
+INFO  10:35:03 Updated coin total: 195
+INFO  10:36:06 Updated coin total: 195
+INFO  10:37:09 Updated coin total: 195
+INFO  10:38:11 Updated coin total: 195
+INFO  10:39:14 Updated coin total: 195
+INFO  10:40:18 Updated coin total: 195
+INFO  10:41:21 Updated coin total: 195
+INFO  10:42:23 Updated coin total: 195
+INFO  10:43:26 Updated coin total: 195
+INFO  10:44:30 Updated coin total: 195
+INFO  10:45:33 Updated coin total: 195
+INFO  10:46:36 Updated coin total: 195
+INFO  10:47:39 Updated coin total: 195
+INFO  10:48:43 Updated coin total: 195
+INFO  10:49:46 Updated coin total: 195
+INFO  10:50:49 Updated coin total: 195
+INFO  10:51:52 Updated coin total: 195
+INFO  10:52:56 Updated coin total: 195
+INFO  10:53:58 Updated coin total: 195
+INFO  10:55:01 Updated coin total: 195
+INFO  10:56:04 Updated coin total: 195
+INFO  10:57:14 Updated coin total: 195
+INFO  10:58:18 Updated coin total: 195
+INFO  10:59:21 Updated coin total: 195
+INFO  11:00:24 Updated coin total: 195
+INFO  11:01:27 Updated coin total: 195
+INFO  11:02:31 Updated coin total: 195
+INFO  11:03:35 Updated coin total: 195
+INFO  11:04:44 Updated coin total: 195
+INFO  11:05:48 Updated coin total: 195
+INFO  11:06:53 Updated coin total: 195
+INFO  11:07:56 Updated coin total: 195
+INFO  11:08:59 Updated coin total: 195
+INFO  11:10:02 Updated coin total: 195
+INFO  11:11:06 Updated coin total: 195
+INFO  11:12:09 Updated coin total: 195
+INFO  11:13:13 Updated coin total: 195
+INFO  11:14:16 Updated coin total: 195
+INFO  11:15:19 Updated coin total: 195
+INFO  11:16:23 Updated coin total: 195
+INFO  11:17:26 Updated coin total: 195
+INFO  11:18:29 Updated coin total: 195
+INFO  11:19:32 Updated coin total: 195
+INFO  11:20:36 Updated coin total: 195
+INFO  11:21:39 Updated coin total: 195
+INFO  11:22:42 Updated coin total: 195
+INFO  11:23:45 Updated coin total: 195
+INFO  11:24:49 Updated coin total: 195
+INFO  11:25:52 Updated coin total: 195
+INFO  11:26:55 Updated coin total: 195
+INFO  11:27:58 Updated coin total: 195
+INFO  11:29:01 Updated coin total: 195
+INFO  11:30:06 Updated coin total: 195
+INFO  11:31:09 Updated coin total: 195
+INFO  11:32:16 Updated coin total: 195
+INFO  11:33:19 Updated coin total: 195
+INFO  11:34:22 Updated coin total: 195
+INFO  11:35:25 Updated coin total: 195
+INFO  11:36:28 Updated coin total: 195
+INFO  11:37:29 Updated coin total: 195
+INFO  11:38:33 Updated coin total: 195
+INFO  11:39:35 Updated coin total: 195
+INFO  11:40:39 Updated coin total: 195
+INFO  11:41:42 Updated coin total: 195
+INFO  11:42:46 Updated coin total: 195
+INFO  11:43:49 Updated coin total: 195
+INFO  11:44:52 Updated coin total: 195
+INFO  11:45:55 Updated coin total: 195
+INFO  11:46:58 Updated coin total: 195
+INFO  11:48:02 Updated coin total: 195
+INFO  11:49:05 Updated coin total: 195
+INFO  11:50:08 Updated coin total: 195
+INFO  11:51:12 Updated coin total: 195
+INFO  11:52:16 Updated coin total: 195
+INFO  11:53:19 Updated coin total: 195
+INFO  11:54:22 Updated coin total: 195
+INFO  11:55:25 Updated coin total: 195
+INFO  11:56:29 Updated coin total: 195
+INFO  11:57:32 Updated coin total: 195
+INFO  11:58:35 Updated coin total: 195
+INFO  11:59:44 Updated coin total: 195
+INFO  12:00:47 Updated coin total: 195
+INFO  12:01:51 Updated coin total: 195
+INFO  12:02:54 Updated coin total: 195
+INFO  12:03:58 Updated coin total: 195
+INFO  12:05:02 Updated coin total: 195
+INFO  12:06:07 Updated coin total: 195
+INFO  12:07:15 Updated coin total: 195
+INFO  12:08:18 Updated coin total: 195
+INFO  12:09:21 Updated coin total: 195
+INFO  12:10:25 Updated coin total: 195
+INFO  12:11:28 Updated coin total: 195
+INFO  12:12:29 Updated coin total: 195
+INFO  12:13:32 Updated coin total: 195
+INFO  12:14:36 Updated coin total: 195
+INFO  12:15:39 Updated coin total: 195
+INFO  12:16:42 Updated coin total: 195
+INFO  12:17:45 Updated coin total: 195
+INFO  12:18:48 Updated coin total: 195
+INFO  12:19:52 Updated coin total: 195
+INFO  12:20:55 Updated coin total: 195
+INFO  12:21:58 Updated coin total: 195
+INFO  12:23:01 Updated coin total: 195
+INFO  12:24:05 Updated coin total: 195
+INFO  12:25:08 Updated coin total: 195
+INFO  12:26:11 Updated coin total: 195
+INFO  12:27:14 Updated coin total: 195
+INFO  12:28:18 Updated coin total: 195
+INFO  12:29:21 Updated coin total: 195
+INFO  12:30:24 Updated coin total: 195
+INFO  12:31:27 Updated coin total: 195
+INFO  12:32:31 Updated coin total: 195
+INFO  12:33:34 Updated coin total: 195
+INFO  12:34:37 Updated coin total: 195
+INFO  12:35:40 Updated coin total: 195
+INFO  12:36:43 Updated coin total: 195
+INFO  12:37:47 Updated coin total: 195
+INFO  12:38:50 Updated coin total: 195
+INFO  12:39:53 Updated coin total: 195
+INFO  12:40:56 Updated coin total: 195
+INFO  12:42:00 Updated coin total: 195
+INFO  12:43:03 Updated coin total: 195
+INFO  12:44:07 Updated coin total: 195
+INFO  12:45:10 Updated coin total: 195
+INFO  12:46:14 Updated coin total: 195
+INFO  12:47:15 Updated coin total: 195
+INFO  12:48:18 Updated coin total: 195
+INFO  12:49:22 Updated coin total: 195
+INFO  12:50:25 Updated coin total: 195
+INFO  12:51:29 Updated coin total: 195
+INFO  12:52:32 Updated coin total: 195
+INFO  12:53:35 Updated coin total: 195
+INFO  12:54:44 Updated coin total: 195
+INFO  12:55:48 Updated coin total: 195
+INFO  12:56:51 Updated coin total: 195
+INFO  12:57:54 Updated coin total: 195
+INFO  12:58:57 Updated coin total: 195
+INFO  01:00:01 Updated coin total: 195
+INFO  01:01:04 Updated coin total: 195
+INFO  01:02:07 Updated coin total: 195
+INFO  01:03:09 Updated coin total: 195
+INFO  01:04:13 Updated coin total: 195
+INFO  01:05:16 Updated coin total: 195
+INFO  01:06:19 Updated coin total: 195
+INFO  01:07:22 Updated coin total: 195
+INFO  01:08:24 Updated coin total: 195
+INFO  01:09:27 Updated coin total: 195
+INFO  01:10:29 Updated coin total: 195
+INFO  01:11:30 Updated coin total: 195
+INFO  01:12:31 Updated coin total: 195
+INFO  01:13:33 Updated coin total: 195
+INFO  01:14:39 Updated coin total: 195
+INFO  01:15:41 Updated coin total: 195
+INFO  01:16:42 Updated coin total: 195
+INFO  01:17:44 Updated coin total: 195
+INFO  01:18:47 Updated coin total: 195
+INFO  01:19:49 Updated coin total: 195
+INFO  01:20:50 Updated coin total: 195
+INFO  01:21:52 Updated coin total: 195
+INFO  01:22:55 Updated coin total: 195
+INFO  01:23:56 Updated coin total: 195
+INFO  01:24:57 Updated coin total: 195
+INFO  01:25:59 Updated coin total: 195
+INFO  01:27:01 Updated coin total: 195
+INFO  01:28:03 Updated coin total: 195
+INFO  01:29:04 Updated coin total: 195
+INFO  01:30:05 Updated coin total: 195
+INFO  01:31:07 Updated coin total: 195
+INFO  01:32:08 Updated coin total: 195
+INFO  01:33:12 Updated coin total: 195
+INFO  01:34:15 Updated coin total: 195
+INFO  01:35:18 Updated coin total: 195
+INFO  01:36:22 Updated coin total: 195
+INFO  01:37:24 Updated coin total: 195
+INFO  01:39:10 Updated coin total: 195
+INFO  01:40:10 Updated coin total: 195
+INFO  01:41:10 Updated coin total: 195
+INFO  01:42:10 Updated coin total: 195
+INFO  01:43:11 Updated coin total: 195
+INFO  01:44:11 Updated coin total: 195
+INFO  01:45:11 Updated coin total: 195
+INFO  01:46:11 Updated coin total: 195
+INFO  01:47:11 Updated coin total: 195
+INFO  01:48:11 Updated coin total: 195
+INFO  01:49:14 Updated coin total: 195
+INFO  01:50:16 Updated coin total: 195
+INFO  01:51:19 Updated coin total: 195
+INFO  01:52:23 Updated coin total: 195
+INFO  01:53:26 Updated coin total: 195
+INFO  01:54:28 Updated coin total: 195
+INFO  01:55:32 Updated coin total: 195
+INFO  01:56:35 Updated coin total: 195
+INFO  01:57:38 Updated coin total: 195
+INFO  01:58:42 Updated coin total: 195
+INFO  01:59:44 Updated coin total: 195
+INFO  02:00:48 Updated coin total: 195
+INFO  02:01:51 Updated coin total: 195
+INFO  02:02:55 Updated coin total: 195
+INFO  02:03:58 Updated coin total: 200
+INFO  02:04:58 Updated coin total: 200
+INFO  02:05:58 Updated coin total: 200
+INFO  02:06:58 Updated coin total: 205
+INFO  02:07:58 Updated coin total: 210
+INFO  02:08:58 Updated coin total: 220
+INFO  02:09:58 Updated coin total: 220
+INFO  02:10:58 Updated coin total: 220
+INFO  02:11:58 Updated coin total: 220
+INFO  02:12:58 Updated coin total: 220
+INFO  02:13:58 Updated coin total: 220
+INFO  02:14:59 Updated coin total: 220
+INFO  02:15:59 Updated coin total: 220
+INFO  02:16:59 Updated coin total: 220
+INFO  02:17:59 Updated coin total: 220
+INFO  02:18:59 Updated coin total: 220
+INFO  02:19:59 Updated coin total: 220
+INFO  02:20:59 Updated coin total: 220
+INFO  02:21:59 Updated coin total: 220
+INFO  02:22:59 Updated coin total: 220
+INFO  02:23:59 Updated coin total: 220
+INFO  02:24:59 Updated coin total: 220
+INFO  02:25:59 Updated coin total: 220
+INFO  02:26:59 Updated coin total: 220
+INFO  02:28:00 Updated coin total: 220
+INFO  02:28:38 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  02:29:00 Updated coin total: 230
+INFO  02:30:00 Updated coin total: 235
+INFO  02:31:00 Updated coin total: 235
+INFO  02:32:00 Updated coin total: 235
+INFO  02:32:37 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fdantri.com.vn%2F
+INFO  02:33:00 Updated coin total: 245
+INFO  02:34:00 Updated coin total: 245
+INFO  02:35:00 Updated coin total: 245
+INFO  02:36:00 Updated coin total: 245
+INFO  02:37:00 Updated coin total: 245
+INFO  02:37:20 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fdantri.com.vn%2F
+INFO  02:38:00 Updated coin total: 260
+INFO  02:39:00 Updated coin total: 260
+INFO  02:40:00 Updated coin total: 260
+INFO  02:41:00 Updated coin total: 265
+INFO  02:42:00 Updated coin total: 265
+INFO  02:43:00 Updated coin total: 265
+INFO  02:44:01 Updated coin total: 265
+INFO  02:45:01 Updated coin total: 280
+INFO  02:45:23 Do mission: 8562091442617, INVITE, mocha://browser?ref=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Ftext%3D%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%2520LaoApp%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%2520500%2520MB%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252025%2520%25E0%25BA%2599%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%259E%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BB%2583%25E0%25BA%2599%25E0%25BB%2580%25E0%25BA%2584%25E0%25BA%25B7%25E0%25BA%25AD%25E0%25BA%2582%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%258D%2520%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B7%2520%25E0%25BB%2580%25E0%25BA%259A%25E0%25BA%25B4%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%2588%25E0%25BA%25B3%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%2594%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252030%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%25E0%25BB%2583%25E0%25BA%2599%2520Uclip%2520%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%2520https%253A%252F%252Fbit.ly%252F301Fo3k%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AA%25E0%25BA%25BB%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%2582%25E0%25BB%258D%25E0%25BB%2589%25E0%25BA%2584%25E0%25BA%25A7%25E0%25BA%25B2%25E0%25BA%25A1%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252C%2520%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2599%252C%2520%25E0%25BA%259F%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%2587%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BB%2580%25E0%25BA%25AA%25E0%25BA%258D%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%25E2%2580%25A6%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%2520%25E0%25BA%258D%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BA%25A1%25E0%25BA%25B5%25E0%25BB%2580%25E0%25BA%2581%25E0%25BA%25A1%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BB%2583%25E0%25BA%25AB%25E0%25BB%2589%25E0%25BA%2597%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25A5%25E0%25BA%25B4%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B8%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2582%25E0%25BA%25AD%25E0%25BA%2587%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%25A1%25E0%25BA%25B9%25E0%25BA%2599%25E0%25BA%2584%25E0%25BB%2588%25E0%25BA%25B2%25201.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B8%25E0%25BA%2581%25E0%25BB%2586%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252010.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B4%25E0%25BA%2594.%2520LaoApp%2520%25E0%25BA%258A%25E0%25BA%25B8%25E0%25BA%259A%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%2581%25E0%25BA%25B3%25E0%25BA%25A5%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%2599%25E0%25BA%25B4%25E0%25BA%258D%25E0%25BA%25BB%25E0%25BA%25A1%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%25AA%25E0%25BA%25B8%25E0%25BA%2594%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%25A7%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%259C%25E0%25BA%25B9%25E0%25BB%2589%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BA%2599%25E0%25BA%25B3%25E0%25BB%2583%25E0%25BA%258A%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%2581%25E0%25BA%25A7%25E0%25BB%2588%25E0%25BA%25B2%25201%252C5%2520%25E0%25BA%25A5%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BA%2584%25E0%25BA%25BB%25E0%25BA%2599.
+INFO  02:46:01 Updated coin total: 310
+INFO  02:46:18 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  02:46:25 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fcafef.vn%2F
+INFO  02:46:36 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fdantri.com.vn%2F
+INFO  02:46:39 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  02:47:01 Updated coin total: 335
+INFO  02:48:01 Updated coin total: 335
+INFO  02:49:01 Updated coin total: 335
+INFO  02:50:01 Updated coin total: 335
+INFO  02:51:01 Updated coin total: 335
+INFO  02:51:13 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  02:52:01 Updated coin total: 340
+INFO  02:52:58 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  02:53:01 Updated coin total: 350
+INFO  02:54:01 Updated coin total: 350
+INFO  02:54:37 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  02:55:01 Updated coin total: 365
+INFO  02:56:01 Updated coin total: 365
+INFO  02:57:01 Updated coin total: 365
+INFO  02:58:02 Updated coin total: 365
+INFO  02:59:02 Updated coin total: 365
+INFO  03:00:02 Updated coin total: 365
+INFO  03:01:02 Updated coin total: 365
+INFO  03:02:02 Updated coin total: 365
+INFO  03:03:02 Updated coin total: 365
+INFO  03:04:02 Updated coin total: 365
+INFO  03:05:02 Updated coin total: 365
+INFO  03:06:02 Updated coin total: 365
+INFO  03:07:02 Updated coin total: 365
+INFO  03:08:02 Updated coin total: 365
+INFO  03:09:02 Updated coin total: 365
+INFO  03:10:02 Updated coin total: 365
+INFO  03:11:02 Updated coin total: 365
+INFO  03:12:03 Updated coin total: 365
+INFO  03:13:03 Updated coin total: 365
+INFO  03:14:03 Updated coin total: 365
+INFO  03:15:03 Updated coin total: 365
+INFO  03:16:03 Updated coin total: 365
+INFO  03:17:03 Updated coin total: 365
+INFO  03:18:03 Updated coin total: 365
+INFO  03:19:03 Updated coin total: 365
+INFO  03:20:03 Updated coin total: 365
+INFO  03:21:03 Updated coin total: 365
+INFO  03:22:03 Updated coin total: 365
+INFO  03:23:03 Updated coin total: 365
+INFO  03:24:03 Updated coin total: 365
+INFO  03:25:03 Updated coin total: 365
+INFO  03:26:04 Updated coin total: 365
+INFO  03:27:06 Updated coin total: 365
+INFO  03:28:06 Updated coin total: 365
+INFO  03:29:06 Updated coin total: 365
+INFO  03:30:06 Updated coin total: 365
+INFO  03:31:06 Updated coin total: 365
+INFO  03:32:06 Updated coin total: 365
+INFO  03:33:06 Updated coin total: 365
+INFO  03:34:06 Updated coin total: 365
+INFO  03:34:46 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fdantri.com.vn%2F
+INFO  09:28:35 Application - Main is invoked
+INFO  09:28:43 Loaded coin total: 365
+INFO  09:29:16 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fcafef.vn%2F
+INFO  09:29:26 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fdantri.com.vn%2F
+INFO  09:29:36 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  09:29:43 Updated coin total: 380
+INFO  09:30:43 Updated coin total: 385
+INFO  09:31:43 Updated coin total: 390
+INFO  09:32:21 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  09:32:43 Updated coin total: 410
+INFO  09:33:43 Updated coin total: 410
+INFO  09:34:43 Updated coin total: 410
+INFO  09:35:44 Updated coin total: 415
+INFO  09:35:52 Do mission: 8562091442617, INVITE, mocha://browser?ref=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Ftext%3D%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%2520LaoApp%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%2520500%2520MB%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252025%2520%25E0%25BA%2599%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%259E%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BB%2583%25E0%25BA%2599%25E0%25BB%2580%25E0%25BA%2584%25E0%25BA%25B7%25E0%25BA%25AD%25E0%25BA%2582%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%258D%2520%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B7%2520%25E0%25BB%2580%25E0%25BA%259A%25E0%25BA%25B4%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%2588%25E0%25BA%25B3%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%2594%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252030%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%25E0%25BB%2583%25E0%25BA%2599%2520Uclip%2520%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%2520https%253A%252F%252Fbit.ly%252F301Fo3k%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AA%25E0%25BA%25BB%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%2582%25E0%25BB%258D%25E0%25BB%2589%25E0%25BA%2584%25E0%25BA%25A7%25E0%25BA%25B2%25E0%25BA%25A1%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252C%2520%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2599%252C%2520%25E0%25BA%259F%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%2587%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BB%2580%25E0%25BA%25AA%25E0%25BA%258D%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%25E2%2580%25A6%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%2520%25E0%25BA%258D%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BA%25A1%25E0%25BA%25B5%25E0%25BB%2580%25E0%25BA%2581%25E0%25BA%25A1%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BB%2583%25E0%25BA%25AB%25E0%25BB%2589%25E0%25BA%2597%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25A5%25E0%25BA%25B4%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B8%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2582%25E0%25BA%25AD%25E0%25BA%2587%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%25A1%25E0%25BA%25B9%25E0%25BA%2599%25E0%25BA%2584%25E0%25BB%2588%25E0%25BA%25B2%25201.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B8%25E0%25BA%2581%25E0%25BB%2586%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252010.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B4%25E0%25BA%2594.%2520LaoApp%2520%25E0%25BA%258A%25E0%25BA%25B8%25E0%25BA%259A%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%2581%25E0%25BA%25B3%25E0%25BA%25A5%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%2599%25E0%25BA%25B4%25E0%25BA%258D%25E0%25BA%25BB%25E0%25BA%25A1%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%25AA%25E0%25BA%25B8%25E0%25BA%2594%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%25A7%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%259C%25E0%25BA%25B9%25E0%25BB%2589%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BA%2599%25E0%25BA%25B3%25E0%25BB%2583%25E0%25BA%258A%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%2581%25E0%25BA%25A7%25E0%25BB%2588%25E0%25BA%25B2%25201%252C5%2520%25E0%25BA%25A5%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BA%2584%25E0%25BA%25BB%25E0%25BA%2599.
+INFO  09:36:44 Updated coin total: 430
+INFO  09:37:44 Updated coin total: 445
+INFO  09:38:16 Do mission: 8562091442617, INVITE, mocha://invite
+INFO  09:38:44 Updated coin total: 450
+INFO  09:39:44 Updated coin total: 460
+INFO  09:40:44 Updated coin total: 460
+INFO  09:41:17 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  09:41:45 Updated coin total: 475
+INFO  09:42:14 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  09:42:24 Do mission: 8562091442617, INVITE, mocha://invite
+INFO  09:42:45 Updated coin total: 485
+INFO  09:42:51 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fcafef.vn%2F
+INFO  09:43:45 Updated coin total: 495
+INFO  09:44:45 Updated coin total: 495
+INFO  09:45:45 Updated coin total: 495
+INFO  09:46:45 Updated coin total: 495
+INFO  09:47:45 Updated coin total: 495
+INFO  09:48:45 Updated coin total: 495
+INFO  09:49:45 Updated coin total: 495
+INFO  09:50:45 Updated coin total: 495
+INFO  09:51:45 Updated coin total: 495
+INFO  09:52:45 Updated coin total: 495
+INFO  09:53:45 Updated coin total: 495
+INFO  09:54:45 Updated coin total: 495
+INFO  09:55:45 Updated coin total: 495
+INFO  09:56:46 Updated coin total: 495
+INFO  09:57:46 Updated coin total: 495
+INFO  09:58:46 Updated coin total: 495
+INFO  09:59:46 Updated coin total: 495
+INFO  10:00:18 Do mission: 8562091442617, INVITE, mocha://browser?ref=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Ftext%3D%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%2520LaoApp%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%2520500%2520MB%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252025%2520%25E0%25BA%2599%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%259E%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BB%2583%25E0%25BA%2599%25E0%25BB%2580%25E0%25BA%2584%25E0%25BA%25B7%25E0%25BA%25AD%25E0%25BA%2582%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%258D%2520%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B7%2520%25E0%25BB%2580%25E0%25BA%259A%25E0%25BA%25B4%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%2588%25E0%25BA%25B3%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%2594%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252030%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%25E0%25BB%2583%25E0%25BA%2599%2520Uclip%2520%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%2520https%253A%252F%252Fbit.ly%252F301Fo3k%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AA%25E0%25BA%25BB%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%2582%25E0%25BB%258D%25E0%25BB%2589%25E0%25BA%2584%25E0%25BA%25A7%25E0%25BA%25B2%25E0%25BA%25A1%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252C%2520%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2599%252C%2520%25E0%25BA%259F%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%2587%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BB%2580%25E0%25BA%25AA%25E0%25BA%258D%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%25E2%2580%25A6%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%2520%25E0%25BA%258D%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BA%25A1%25E0%25BA%25B5%25E0%25BB%2580%25E0%25BA%2581%25E0%25BA%25A1%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BB%2583%25E0%25BA%25AB%25E0%25BB%2589%25E0%25BA%2597%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25A5%25E0%25BA%25B4%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B8%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2582%25E0%25BA%25AD%25E0%25BA%2587%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%25A1%25E0%25BA%25B9%25E0%25BA%2599%25E0%25BA%2584%25E0%25BB%2588%25E0%25BA%25B2%25201.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B8%25E0%25BA%2581%25E0%25BB%2586%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252010.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B4%25E0%25BA%2594.%2520LaoApp%2520%25E0%25BA%258A%25E0%25BA%25B8%25E0%25BA%259A%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%2581%25E0%25BA%25B3%25E0%25BA%25A5%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%2599%25E0%25BA%25B4%25E0%25BA%258D%25E0%25BA%25BB%25E0%25BA%25A1%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%25AA%25E0%25BA%25B8%25E0%25BA%2594%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%25A7%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%259C%25E0%25BA%25B9%25E0%25BB%2589%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BA%2599%25E0%25BA%25B3%25E0%25BB%2583%25E0%25BA%258A%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%2581%25E0%25BA%25A7%25E0%25BB%2588%25E0%25BA%25B2%25201%252C5%2520%25E0%25BA%25A5%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BA%2584%25E0%25BA%25BB%25E0%25BA%2599.
+INFO  10:00:46 Updated coin total: 505
+INFO  10:01:46 Updated coin total: 505
+INFO  10:02:42 Do mission: 8562091442617, INVITE, sms:?body=%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%20LaoApp%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%20500%20MB%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2025%20%E0%BA%99%E0%BA%B2%E0%BA%97%E0%BA%B5%E0%BB%82%E0%BA%97%E0%BA%9E%E0%BA%B2%E0%BA%8D%E0%BB%83%E0%BA%99%E0%BB%80%E0%BA%84%E0%BA%B7%E0%BA%AD%E0%BA%82%E0%BB%88%E0%BA%B2%E0%BA%8D%20%E0%BA%AB%E0%BA%BC%E0%BA%B7%20%E0%BB%80%E0%BA%9A%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%88%E0%BA%B3%E0%BA%81%E0%BA%B1%E0%BA%94%E0%BA%9F%E0%BA%A3%E0%BA%B5%2030%E0%BA%A1%E0%BA%B7%E0%BB%89%E0%BB%83%E0%BA%99%20Uclip%20%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%97%E0%BA%B5%E0%BB%88%20https%3A%2F%2Fbit.ly%2F301Fo3k%20%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BA%AA%E0%BA%BB%E0%BB%88%E0%BA%87%E0%BA%82%E0%BB%8D%E0%BB%89%E0%BA%84%E0%BA%A7%E0%BA%B2%E0%BA%A1%E0%BA%9F%E0%BA%A3%E0%BA%B5%2C%20%E0%BB%82%E0%BA%97%E0%BA%A7%E0%BA%B4%E0%BA%94%E0%BA%B4%E0%BB%82%E0%BA%AD%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BA%AD%E0%BA%B1%E0%BB%89%E0%BA%99%2C%20%E0%BA%9F%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9E%E0%BA%87%E0%BA%9F%E0%BA%A3%E0%BA%B5%E0%BB%81%E0%BA%9A%E0%BA%9A%E0%BA%9A%E0%BB%8D%E0%BB%88%E0%BB%80%E0%BA%AA%E0%BA%8D%E0%BA%94%E0%BA%B2%E0%BA%95%E0%BB%89%E0%BA%B2%E2%80%A6%20%E0%BB%81%E0%BA%A5%E0%BA%B0%20%E0%BA%8D%E0%BA%B1%E0%BA%87%E0%BA%A1%E0%BA%B5%E0%BB%80%E0%BA%81%E0%BA%A1%E0%BB%80%E0%BA%9E%E0%BA%B7%E0%BB%88%E0%BA%AD%E0%BB%83%E0%BA%AB%E0%BB%89%E0%BA%97%E0%BB%88%E0%BA%B2%E0%BA%99%E0%BB%84%E0%BA%94%E0%BB%89%E0%BA%AB%E0%BA%A5%E0%BA%B4%E0%BB%89%E0%BA%99%E0%BA%A5%E0%BA%B8%E0%BB%89%E0%BA%99%E0%BA%AE%E0%BA%B1%E0%BA%9A%E0%BA%82%E0%BA%AD%E0%BA%87%E0%BA%A5%E0%BA%B2%E0%BA%87%E0%BA%A7%E0%BA%B1%E0%BA%99%E0%BA%A1%E0%BA%B9%E0%BA%99%E0%BA%84%E0%BB%88%E0%BA%B2%201.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BA%B8%E0%BA%81%E0%BB%86%E0%BA%A1%E0%BA%B7%E0%BB%89%20%E0%BB%81%E0%BA%A5%E0%BA%B0%2010.000.000%20%E0%BA%81%E0%BA%B5%E0%BA%9A%E0%BB%83%E0%BA%99%E0%BA%97%E0%BB%89%E0%BA%B2%E0%BA%8D%E0%BA%AD%E0%BA%B2%E0%BA%97%E0%BA%B4%E0%BA%94.%20LaoApp%20%E0%BA%8A%E0%BA%B8%E0%BA%9A%E0%BB%80%E0%BA%9B%E0%BA%B5%E0%BB%81%E0%BA%AD%E0%BA%B1%E0%BA%9A%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%81%E0%BA%B3%E0%BA%A5%E0%BA%B1%E0%BA%87%E0%BB%80%E0%BA%9B%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%99%E0%BA%B4%E0%BA%8D%E0%BA%BB%E0%BA%A1%E0%BA%97%E0%BA%B5%E0%BB%88%E0%BA%AA%E0%BA%B8%E0%BA%94%E0%BB%83%E0%BA%99%E0%BA%A5%E0%BA%B2%E0%BA%A7%E0%BA%81%E0%BA%B1%E0%BA%9A%E0%BA%8D%E0%BA%AD%E0%BA%94%E0%BA%9C%E0%BA%B9%E0%BB%89%E0%BA%95%E0%BA%B4%E0%BA%94%E0%BA%95%E0%BA%B1%E0%BB%89%E0%BA%87%E0%BA%99%E0%BA%B3%E0%BB%83%E0%BA%8A%E0%BB%89%E0%BA%AB%E0%BA%BC%E0%BA%B2%E0%BA%8D%E0%BA%81%E0%BA%A7%E0%BB%88%E0%BA%B2%201%2C5%20%E0%BA%A5%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BA%84%E0%BA%BB%E0%BA%99.
+INFO  10:02:46 Updated coin total: 525
+INFO  10:02:53 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fcafef.vn%2F
+INFO  10:03:46 Updated coin total: 540
+INFO  09:52:19 Application - Main is invoked
+INFO  09:52:21 Loaded coin total: 540
+INFO  10:06:41 Application - Main is invoked
+INFO  10:06:44 Loaded coin total: 540
+INFO  10:07:44 Updated coin total: 540
+INFO  10:08:44 Updated coin total: 540
+INFO  10:09:44 Updated coin total: 540
+INFO  10:10:56 Application - Main is invoked
+INFO  10:10:58 Loaded coin total: 540
+INFO  10:11:58 Updated coin total: 545
+INFO  10:12:05 Do mission: 8562091442617, INVITE, mocha://browser?ref=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Ftext%3D%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%2520LaoApp%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%2520500%2520MB%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252025%2520%25E0%25BA%2599%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%259E%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BB%2583%25E0%25BA%2599%25E0%25BB%2580%25E0%25BA%2584%25E0%25BA%25B7%25E0%25BA%25AD%25E0%25BA%2582%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%258D%2520%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B7%2520%25E0%25BB%2580%25E0%25BA%259A%25E0%25BA%25B4%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%2588%25E0%25BA%25B3%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%2594%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252030%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%25E0%25BB%2583%25E0%25BA%2599%2520Uclip%2520%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%2520https%253A%252F%252Fbit.ly%252F301Fo3k%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AA%25E0%25BA%25BB%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%2582%25E0%25BB%258D%25E0%25BB%2589%25E0%25BA%2584%25E0%25BA%25A7%25E0%25BA%25B2%25E0%25BA%25A1%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252C%2520%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2599%252C%2520%25E0%25BA%259F%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%2587%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BB%2580%25E0%25BA%25AA%25E0%25BA%258D%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%25E2%2580%25A6%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%2520%25E0%25BA%258D%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BA%25A1%25E0%25BA%25B5%25E0%25BB%2580%25E0%25BA%2581%25E0%25BA%25A1%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BB%2583%25E0%25BA%25AB%25E0%25BB%2589%25E0%25BA%2597%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25A5%25E0%25BA%25B4%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B8%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2582%25E0%25BA%25AD%25E0%25BA%2587%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%25A1%25E0%25BA%25B9%25E0%25BA%2599%25E0%25BA%2584%25E0%25BB%2588%25E0%25BA%25B2%25201.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B8%25E0%25BA%2581%25E0%25BB%2586%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252010.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B4%25E0%25BA%2594.%2520LaoApp%2520%25E0%25BA%258A%25E0%25BA%25B8%25E0%25BA%259A%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%2581%25E0%25BA%25B3%25E0%25BA%25A5%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%2599%25E0%25BA%25B4%25E0%25BA%258D%25E0%25BA%25BB%25E0%25BA%25A1%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%25AA%25E0%25BA%25B8%25E0%25BA%2594%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%25A7%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%259C%25E0%25BA%25B9%25E0%25BB%2589%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BA%2599%25E0%25BA%25B3%25E0%25BB%2583%25E0%25BA%258A%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%2581%25E0%25BA%25A7%25E0%25BB%2588%25E0%25BA%25B2%25201%252C5%2520%25E0%25BA%25A5%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BA%2584%25E0%25BA%25BB%25E0%25BA%2599.
+INFO  10:12:58 Updated coin total: 545
+INFO  10:13:58 Updated coin total: 545
+INFO  10:14:58 Updated coin total: 545
+INFO  10:15:58 Updated coin total: 545
+INFO  10:16:58 Updated coin total: 545
+INFO  10:17:58 Updated coin total: 545
+INFO  10:18:58 Updated coin total: 545
+INFO  10:19:59 Updated coin total: 545
+INFO  10:20:59 Updated coin total: 545
+INFO  10:21:59 Updated coin total: 545
+INFO  10:22:59 Updated coin total: 545
+INFO  10:23:59 Updated coin total: 545
+INFO  10:24:59 Updated coin total: 545
+INFO  10:25:59 Updated coin total: 545
+INFO  10:26:59 Updated coin total: 545
+INFO  10:27:59 Updated coin total: 545
+INFO  10:28:59 Updated coin total: 545
+INFO  10:29:59 Updated coin total: 545
+INFO  11:03:29 Application - Main is invoked
+INFO  11:03:31 Loaded coin total: 545
+INFO  11:04:31 Updated coin total: 545
+INFO  11:05:38 Updated coin total: 545
+INFO  11:06:30 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fcafef.vn%2F
+INFO  11:06:38 Updated coin total: 565
+INFO  11:06:41 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  11:07:38 Updated coin total: 565
+INFO  11:08:38 Updated coin total: 565
+INFO  11:09:38 Updated coin total: 565
+INFO  11:10:38 Updated coin total: 565
+INFO  11:11:38 Updated coin total: 565
+INFO  11:12:38 Updated coin total: 565
+INFO  11:13:38 Updated coin total: 565
+INFO  11:14:38 Updated coin total: 565
+INFO  11:15:38 Updated coin total: 565
+INFO  11:16:39 Updated coin total: 565
+INFO  11:17:38 Do mission: 8562091442617, image, 
+INFO  11:17:39 Updated coin total: 565
+INFO  11:18:39 Updated coin total: 565
+INFO  11:19:17 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fvnexpress.net%2F
+INFO  11:19:26 Do mission: 8562091442617, INVITE, mocha://browser?ref=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Ftext%3D%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%2520LaoApp%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%2520500%2520MB%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252025%2520%25E0%25BA%2599%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%259E%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BB%2583%25E0%25BA%2599%25E0%25BB%2580%25E0%25BA%2584%25E0%25BA%25B7%25E0%25BA%25AD%25E0%25BA%2582%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%258D%2520%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B7%2520%25E0%25BB%2580%25E0%25BA%259A%25E0%25BA%25B4%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%2588%25E0%25BA%25B3%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%2594%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252030%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%25E0%25BB%2583%25E0%25BA%2599%2520Uclip%2520%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%2520https%253A%252F%252Fbit.ly%252F301Fo3k%2520%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25AA%25E0%25BA%25BB%25E0%25BB%2588%25E0%25BA%2587%25E0%25BA%2582%25E0%25BB%258D%25E0%25BB%2589%25E0%25BA%2584%25E0%25BA%25A7%25E0%25BA%25B2%25E0%25BA%25A1%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%252C%2520%25E0%25BB%2582%25E0%25BA%2597%25E0%25BA%25A7%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%25B4%25E0%25BB%2582%25E0%25BA%25AD%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2599%252C%2520%25E0%25BA%259F%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%2587%25E0%25BA%259F%25E0%25BA%25A3%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%259A%25E0%25BA%259A%25E0%25BA%259A%25E0%25BB%258D%25E0%25BB%2588%25E0%25BB%2580%25E0%25BA%25AA%25E0%25BA%258D%25E0%25BA%2594%25E0%25BA%25B2%25E0%25BA%2595%25E0%25BB%2589%25E0%25BA%25B2%25E2%2580%25A6%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%2520%25E0%25BA%258D%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BA%25A1%25E0%25BA%25B5%25E0%25BB%2580%25E0%25BA%2581%25E0%25BA%25A1%25E0%25BB%2580%25E0%25BA%259E%25E0%25BA%25B7%25E0%25BB%2588%25E0%25BA%25AD%25E0%25BB%2583%25E0%25BA%25AB%25E0%25BB%2589%25E0%25BA%2597%25E0%25BB%2588%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BB%2584%25E0%25BA%2594%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25A5%25E0%25BA%25B4%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B8%25E0%25BB%2589%25E0%25BA%2599%25E0%25BA%25AE%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2582%25E0%25BA%25AD%25E0%25BA%2587%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%2587%25E0%25BA%25A7%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%25A1%25E0%25BA%25B9%25E0%25BA%2599%25E0%25BA%2584%25E0%25BB%2588%25E0%25BA%25B2%25201.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B8%25E0%25BA%2581%25E0%25BB%2586%25E0%25BA%25A1%25E0%25BA%25B7%25E0%25BB%2589%2520%25E0%25BB%2581%25E0%25BA%25A5%25E0%25BA%25B0%252010.000.000%2520%25E0%25BA%2581%25E0%25BA%25B5%25E0%25BA%259A%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%2597%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%25B2%25E0%25BA%2597%25E0%25BA%25B4%25E0%25BA%2594.%2520LaoApp%2520%25E0%25BA%258A%25E0%25BA%25B8%25E0%25BA%259A%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B5%25E0%25BB%2581%25E0%25BA%25AD%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%2581%25E0%25BA%25B3%25E0%25BA%25A5%25E0%25BA%25B1%25E0%25BA%2587%25E0%25BB%2580%25E0%25BA%259B%25E0%25BA%25B1%25E0%25BA%2599%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%2599%25E0%25BA%25B4%25E0%25BA%258D%25E0%25BA%25BB%25E0%25BA%25A1%25E0%25BA%2597%25E0%25BA%25B5%25E0%25BB%2588%25E0%25BA%25AA%25E0%25BA%25B8%25E0%25BA%2594%25E0%25BB%2583%25E0%25BA%2599%25E0%25BA%25A5%25E0%25BA%25B2%25E0%25BA%25A7%25E0%25BA%2581%25E0%25BA%25B1%25E0%25BA%259A%25E0%25BA%258D%25E0%25BA%25AD%25E0%25BA%2594%25E0%25BA%259C%25E0%25BA%25B9%25E0%25BB%2589%25E0%25BA%2595%25E0%25BA%25B4%25E0%25BA%2594%25E0%25BA%2595%25E0%25BA%25B1%25E0%25BB%2589%25E0%25BA%2587%25E0%25BA%2599%25E0%25BA%25B3%25E0%25BB%2583%25E0%25BA%258A%25E0%25BB%2589%25E0%25BA%25AB%25E0%25BA%25BC%25E0%25BA%25B2%25E0%25BA%258D%25E0%25BA%2581%25E0%25BA%25A7%25E0%25BB%2588%25E0%25BA%25B2%25201%252C5%2520%25E0%25BA%25A5%25E0%25BB%2589%25E0%25BA%25B2%25E0%25BA%2599%25E0%25BA%2584%25E0%25BA%25BB%25E0%25BA%2599.
+INFO  11:19:33 Do mission: 8562091442617, MISSION, mocha://browser?ref=https%3A%2F%2Fcafef.vn%2F
+INFO  11:19:39 Updated coin total: 590
+INFO  11:20:17 Do mission: 8562091442617, INVITE, mocha://invite
+INFO  11:20:39 Updated coin total: 605
+INFO  11:21:43 Application - Main is invoked
+INFO  11:21:45 Loaded coin total: 605
+INFO  11:22:25 Do mission: 8562091442617, image, 
+INFO  11:22:39 Do mission: 8562091442617, image, 
+INFO  11:22:45 Updated coin total: 620
+INFO  11:23:45 Updated coin total: 620
+INFO  11:24:45 Updated coin total: 620
+INFO  11:25:45 Updated coin total: 620
+INFO  11:26:45 Updated coin total: 620
+INFO  11:27:45 Updated coin total: 620
+INFO  11:28:46 Updated coin total: 620
+INFO  11:29:46 Updated coin total: 620
+INFO  11:30:46 Updated coin total: 620
+INFO  11:31:46 Updated coin total: 620
+INFO  11:32:46 Updated coin total: 620
+INFO  11:33:46 Updated coin total: 620
+INFO  11:34:46 Updated coin total: 620
+INFO  11:35:46 Updated coin total: 620
+INFO  11:36:46 Updated coin total: 620
+INFO  11:37:46 Updated coin total: 620
+INFO  11:38:46 Updated coin total: 620
+INFO  11:39:47 Updated coin total: 620
+INFO  11:40:45 Do mission: 8562091442617, image, 
+INFO  11:40:47 Updated coin total: 620
+INFO  11:41:47 Updated coin total: 620
+INFO  11:42:47 Updated coin total: 625
+INFO  11:43:47 Updated coin total: 625
+INFO  11:44:08 Do mission: 8562091442617, image, 
+INFO  11:44:31 Do mission: 8562091442617, image, 
+INFO  11:44:47 Updated coin total: 630
+INFO  11:45:47 Updated coin total: 630
+INFO  11:46:47 Updated coin total: 630
+INFO  11:47:08 Do mission: 8562091442617, image, 
+INFO  11:47:26 Do mission: 8562091442617, image, 
+INFO  11:47:47 Updated coin total: 645
+INFO  11:48:47 Updated coin total: 645
+INFO  11:49:47 Updated coin total: 645
+INFO  11:50:55 Updated coin total: 645
+INFO  11:50:55 Do mission: 8562091442617, image, 
+INFO  11:51:39 Do mission: 8562091442617, image, 
+INFO  11:51:55 Updated coin total: 645
+INFO  11:52:52 Do mission: 8562091442617, image, 
+INFO  11:52:55 Updated coin total: 650
+INFO  11:53:38 Do mission: 8562091442617, image, 
+INFO  11:53:55 Updated coin total: 660
+INFO  11:54:48 Do mission: 8562091442617, image, 
+INFO  11:54:55 Updated coin total: 660
+INFO  11:55:55 Updated coin total: 665
+INFO  11:56:55 Updated coin total: 665
+INFO  11:57:55 Updated coin total: 665
+INFO  11:58:56 Updated coin total: 665
+INFO  11:59:56 Updated coin total: 665
+INFO  12:00:56 Updated coin total: 665
+INFO  12:01:56 Updated coin total: 665
+INFO  12:02:56 Updated coin total: 665
+INFO  12:03:56 Updated coin total: 665
+INFO  12:04:56 Updated coin total: 665
+INFO  12:05:56 Updated coin total: 665
+INFO  12:06:56 Updated coin total: 665
+INFO  12:07:56 Updated coin total: 665
+INFO  12:08:56 Updated coin total: 665
+INFO  12:09:56 Updated coin total: 665
+INFO  12:10:56 Updated coin total: 665
+INFO  12:11:56 Updated coin total: 665
+INFO  12:12:56 Updated coin total: 665
+INFO  12:13:57 Updated coin total: 665
+INFO  12:14:57 Updated coin total: 665
+INFO  12:15:57 Updated coin total: 665
+INFO  12:16:57 Updated coin total: 665
+INFO  12:17:57 Updated coin total: 665
+INFO  12:18:57 Updated coin total: 665
+INFO  12:19:57 Updated coin total: 665
+INFO  12:20:27 Do mission: 8562091442617, image, 
+INFO  12:20:57 Updated coin total: 665
+INFO  12:21:41 Do mission: 8562091442617, image, 
+INFO  12:21:57 Updated coin total: 670
+INFO  12:22:54 Do mission: 8562091442617, image, 
+INFO  12:22:57 Updated coin total: 680
+INFO  12:23:57 Updated coin total: 680
+INFO  12:24:23 Do mission: 8562091442617, image, 
+INFO  12:24:58 Updated coin total: 680
+INFO  12:25:58 Updated coin total: 680
+INFO  12:26:58 Updated coin total: 680
+INFO  12:27:58 Updated coin total: 680
+INFO  12:28:58 Updated coin total: 680
+INFO  12:29:58 Updated coin total: 680
+INFO  12:30:58 Updated coin total: 680
+INFO  12:31:58 Updated coin total: 680
+INFO  12:32:58 Updated coin total: 680
+INFO  12:33:58 Updated coin total: 680
+INFO  12:34:58 Updated coin total: 680
+INFO  12:35:58 Updated coin total: 680
+INFO  12:36:59 Updated coin total: 680
+INFO  12:37:59 Updated coin total: 680
+INFO  12:38:59 Updated coin total: 680
+INFO  12:39:59 Updated coin total: 680
+INFO  12:40:59 Updated coin total: 680
+INFO  12:41:59 Updated coin total: 680
+INFO  12:42:59 Updated coin total: 680
+INFO  12:43:59 Updated coin total: 680
+INFO  12:44:59 Updated coin total: 680
+INFO  12:45:59 Updated coin total: 680
+INFO  12:46:59 Updated coin total: 680
+INFO  12:47:59 Updated coin total: 680
+INFO  12:48:59 Updated coin total: 680
+INFO  12:50:00 Updated coin total: 680
+INFO  12:51:00 Updated coin total: 680
+INFO  12:52:00 Updated coin total: 680
+INFO  12:53:00 Updated coin total: 680
+INFO  12:54:00 Updated coin total: 680
+INFO  12:55:00 Updated coin total: 680
+INFO  12:56:00 Updated coin total: 680
+INFO  12:57:00 Updated coin total: 680
+INFO  12:58:00 Updated coin total: 680
+INFO  12:59:00 Updated coin total: 680
+INFO  01:00:00 Updated coin total: 680
+INFO  01:01:00 Updated coin total: 680
+INFO  01:02:01 Updated coin total: 680
+INFO  01:03:01 Updated coin total: 680
+INFO  01:04:01 Updated coin total: 680
+INFO  01:05:01 Updated coin total: 680
+INFO  01:06:01 Updated coin total: 680
+INFO  01:07:01 Updated coin total: 680
+INFO  01:08:01 Updated coin total: 680
+INFO  01:09:01 Updated coin total: 680
+INFO  01:10:01 Updated coin total: 680
+INFO  01:11:01 Updated coin total: 680
+INFO  01:12:01 Updated coin total: 680
+INFO  01:13:01 Updated coin total: 680
+INFO  01:14:01 Updated coin total: 680
+INFO  01:15:02 Updated coin total: 680
+INFO  01:16:02 Updated coin total: 680
+INFO  01:17:02 Updated coin total: 680
+INFO  01:18:02 Updated coin total: 680
+INFO  01:19:02 Updated coin total: 680
+INFO  01:20:02 Updated coin total: 680
+INFO  01:21:02 Updated coin total: 680
+INFO  01:22:02 Updated coin total: 680
+INFO  01:23:02 Updated coin total: 680
+INFO  01:24:02 Updated coin total: 680
+INFO  01:25:02 Updated coin total: 680
+INFO  01:26:02 Updated coin total: 680
+INFO  01:27:02 Updated coin total: 680
+INFO  01:28:02 Updated coin total: 680
+INFO  01:29:02 Updated coin total: 680
+INFO  01:30:02 Updated coin total: 680
+INFO  01:31:02 Updated coin total: 680
+INFO  01:32:02 Updated coin total: 680
+INFO  01:33:02 Updated coin total: 680
+INFO  01:34:02 Updated coin total: 680
+INFO  01:35:03 Updated coin total: 680
+INFO  01:36:03 Updated coin total: 680
+INFO  01:37:03 Updated coin total: 680
+INFO  01:38:03 Updated coin total: 680
+INFO  01:39:03 Updated coin total: 680
+INFO  01:40:04 Updated coin total: 680
+INFO  01:41:04 Updated coin total: 680
+INFO  01:42:04 Updated coin total: 680
+INFO  01:43:04 Updated coin total: 680
+INFO  01:44:04 Updated coin total: 680
+INFO  01:45:05 Updated coin total: 680
+INFO  01:46:05 Updated coin total: 680
+INFO  01:47:05 Updated coin total: 680
+INFO  01:48:05 Updated coin total: 680
+INFO  01:49:05 Updated coin total: 680
+INFO  01:50:05 Updated coin total: 680
+INFO  01:51:05 Updated coin total: 680
+INFO  01:52:05 Updated coin total: 680
+INFO  01:53:05 Updated coin total: 685
+INFO  01:53:49 Do mission: 8562091442617, image, 
+INFO  01:54:05 Updated coin total: 690
+INFO  01:54:08 Do mission: 8562091442617, image, 
+INFO  01:54:25 Do mission: 8562091442617, image, 
+INFO  01:55:05 Updated coin total: 695
+INFO  01:55:31 Do mission: 8562091442617, image, 
+INFO  01:56:05 Updated coin total: 700
+INFO  01:56:30 Do mission: 8562091442617, image, 
+INFO  02:17:07 Application - Main is invoked
+INFO  02:17:09 Loaded coin total: 700
+INFO  02:18:09 Updated coin total: 700
+INFO  02:19:09 Updated coin total: 700
+INFO  02:20:09 Updated coin total: 700
+INFO  02:21:09 Updated coin total: 700
+INFO  02:22:09 Updated coin total: 700
+INFO  02:23:10 Updated coin total: 700
+INFO  02:24:10 Updated coin total: 700
+INFO  02:25:10 Updated coin total: 700
+INFO  02:26:10 Updated coin total: 700
+INFO  02:27:10 Updated coin total: 700
+INFO  02:28:10 Updated coin total: 700
+INFO  02:29:10 Updated coin total: 700
+INFO  02:30:11 Updated coin total: 700
+INFO  02:31:11 Updated coin total: 700
+INFO  02:31:40 Do mission: 8562091442617, image, 
+INFO  02:31:59 Do mission: 8562091442617, image, 
+INFO  02:32:11 Updated coin total: 710
+INFO  02:32:22 Do mission: 8562091442617, image, 
+INFO  02:32:53 Do mission: 8562091442617, image, 

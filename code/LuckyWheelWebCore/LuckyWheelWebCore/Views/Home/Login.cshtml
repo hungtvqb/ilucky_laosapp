@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+@using ServiceAPI;
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Extensions;
+@{
+    UserInfo userInfo = Context.Session.GetComplexData<UserInfo>("userInfo");
+}
+
+<style>
+    body {
+        font-size: 1.2rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+
+    .demotext {
+        text-shadow: #474747 3px 5px 2px;
+        color: #FFFFFF;
+        /*background: #333333;*/
+        position: absolute;
+        top: 180px;
+        left: 0px;
+        width: 100%;
+    }
+
+        .demotext input {
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .demotext button {
+            margin-top: 20px;
+        }
+
+    .center_div {
+        margin: 0 auto;
+        width: 80% /* value of your choice which suits your alignment */
+    }
+
+    .error-content {
+        margin-top: 5px;
+        color: white
+    }
+</style>
+
+<div class="container sky">
+    <center>
+        @*<img src="~/Content/myluck/images/prizes-bottom.png" style="width: 100%; position:absolute; bottom: 57px; left:0; z-index: 0" />*@
+        @*<img src="~/Content/myluck/images/prizes.png" style="width: 100%;" />*@
+        @*<img src="~/Content/myluck/images/background.png" style="width: 100%;" />*@
+    </center>
+    <div class="demotext">
+        <div class="text-center center_div">
+            <h1>@Lang.Welcome</h1>
+            <p>@Lang.LoginFirst</p>
+            <div style="padding: 10px;  " class="center_div">
+                <input class="form-control" id="username" placeholder="@Lang.PhoneNumber" />
+                <input class="form-control" id="password" placeholder="@Lang.Password" type="password" />
+                <button class="btn btn-success btn-md" type="button" onclick="login()">@Lang.Login</button>
+            </div>
+            <div class="error-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(".answer-div").click(function () {
+            console.log($(this).attr("data"));
+            $(this).toggleClass("answer-div-selected");
+            $(".result-div").show();
+            $(".answer-div").off('click');
+        });
+
+        function next_question() {
+
+        }
+
+        function login() {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                url: "/Home/LoginShowroom",
+                data: {
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                    username: username,
+                    password: password
+                },
+                type: "POST",
+                success: function (data) {
+                    console.log(data);
+                    if (data.error == "0") {
+                        location.href = data.href;
+                    } else {
+                        $(".error-content").html(data.content);
+                    }
+                    stopSpinner(btnId);
+                },
+                error: function (req, st, error) {
+                    stopSpinner(btnId);
+                }
+            })
+        }
+    </script>
+}

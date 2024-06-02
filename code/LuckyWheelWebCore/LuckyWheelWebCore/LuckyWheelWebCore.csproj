@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Source\ChatWebSocketClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Privacy.cshtml" />
+    <Content Remove="Views\Home\Prize.cshtml" />
+    <Content Remove="Views\Question\Questions.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Source\Lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Content>
+    <Content Include="Source\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.10" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.10" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.7.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\Others\Translator\GoogleTranslateAPI_0.4_alpha\bin\DotNet\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSockets">
+      <HintPath>lib\WebSockets.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Question\" />
+    <Folder Include="wwwroot\demo\" />
+    <Folder Include="wwwroot\Texts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Source\Lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Source\Lang.vn.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Share";
+    //Layout = null;
+}
+@using LuckyWheelWebCore.Source;
+@using LuckyWheelWebCore.Controllers;
+
+
+@*<script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>*@
+
+
+
+
+@section Scripts{
+    
+
+    <script>
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var prizeId = url.searchParams.get("prizeId");
+        var playId = url.searchParams.get("playId");
+
+        
+        function checkFlag() {
+            console.log("Check flag begin " + playId);
+            if (flag === false) {
+                console.log("Check flag " + flag);
+                window.setTimeout(checkFlag, 500); /* this checks the flag every 100 milliseconds*/
+            } else {
+                //var playId = $(".btn-share-facebook").val();
+                if (playId != null && playId > 0) {
+                    // post receive prize
+                    $.ajax({
+                        url: "/Home/ConfirmPrize",
+                        data: {
+                            __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                            playId: playId
+                        },
+                        type: "POST",
+                        success: function (data) {
+                            console.log(data);
+                            if (data.error == "0") {
+                                hideModal("modalPrize");
+                                //location.reload();
+                                window.history.back();
+                            } else {
+                                //alert(data.content);
+                                window.history.back();
+                            }
+                        },
+                        error: function (req, st, error) {
+                            //alert(error);
+                            window.history.back();
+                        }
+                    });
+                }
+            }
+        }
+
+        $(window).on('load', function () {
+
+            console.log("prizeId: " + prizeId + ", playId: " + playId);
+
+            //var prizeId = $(this).attr("data-bind");
+            @*FB.ui({
+                display: 'popup',
+                method: 'share_open_graph',
+                hashtag: '#ໂຊກດີຄັ້ງຕໍ່ໄປ!',
+                quote: 'I got a big prize',
+                action_type: 'og.shares',
+                action_properties: JSON.stringify({
+                    object: {
+                        'og:url': '@BaseController.RootHref' + '/Home/PrizeInfo?prizeId=' + prizeId,
+                        'og:title': 'Unitel iLucky',
+                        'og:description': 'I got big prize',
+                        'og:image': '@BaseController.RootHref' + '/wheel/prize/' + prizeId + '.png',
+                        'og:image:width': '1200',
+                        'og:image:height': '630'
+                    },
+                })
+            }, function (response) {
+                console.log("FB response: " + response);
+                //window.history.back();
+                flag = true;
+            });*@
+
+            share_facebook(prizeId, playId);
+
+            checkFlag();
+        });
+    </script>
+}
